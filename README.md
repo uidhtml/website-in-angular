@@ -1,2 +1,2 @@
 # website-in-angular
-Developing this website in angular and PHP
+Developing website in angular with PHP REST API
