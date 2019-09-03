@@ -1,0 +1,14 @@
+<div class="sideBarBg"></div>
+<nav class="sidebarMenu p-4">
+    <h2 class="text-light mb-4">Posts</h2>
+    <ul class="nav flex-column" *ngFor="let item of menu">
+        <li class="nav-item">
+            <a href="{{item.link}}" data-toggle="collapse" [attr.data-target]="'#' + item.dropdownTarget" class="nav-link text-light p-3 mb-2 bg-danger rounded"><span
+                class="icon icon-{{item.icon}} text-light"></span>{{item.label | uppercase}}</a>
+            <ul id="{{item.dropdownTarget}}" class="nav flex-column collapse" *ngFor="let child of item.children">
+                <li class="nav-item"><a href="#" class="nav-link text-light p-3 rounded"><i
+                      class="fa fa-{{child.icon}}"></i>{{child.label}}</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>

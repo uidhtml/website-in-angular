@@ -1,0 +1,36 @@
+$font-size: 1.6rem;
+.fa {
+    margin-right: 5px;
+}
+
+.navbar {
+    background: #000;
+}
+
+.navbar-nav {
+    a {
+        font-size: $font-size;
+    }
+}
+
+.navbar-toggler {
+    width: 35px;
+    height: 35px;
+    i {
+        font-size: 2rem;
+        color: #fff;
+    }
+}
+
+:host ::ng-deep {
+    .logoWrapper {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    .logo {
+        font-size: 2rem !important;
+        .face {
+            border-radius: 3px !important;
+        }
+    }
+}

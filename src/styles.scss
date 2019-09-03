@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+
+$bodyBg: #b6dcd5;
+html {
+    font-size: 10px;
+}
+
+body {
+    background-color: $bodyBg;
+}
+
+p {
+    &:last-child {
+        margin-bottom: 0;
+    }
+}

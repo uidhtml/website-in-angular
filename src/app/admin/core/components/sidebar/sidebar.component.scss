@@ -1,0 +1,58 @@
+.sideBarBg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+    opacity: .3;
+    background: url('./../../../../../assets/images/sidebar-1.jpg') left bottom;
+    background-size: cover;
+    &:after {
+        position: absolute;
+        z-index: 3;
+        width: 100%;
+        height: 100%;
+        content: "";
+        display: block;
+        background: #000;
+        opacity: .8;
+        top: 0;
+        left: 0;
+    }
+}
+
+h2 {
+    font-size: 1.6rem;
+    font-weight: normal;
+}
+
+.nav {
+    position: relative;
+    .icon {
+        width: 16px;
+        height: 16px;
+        margin-right: 5px;
+        background: #fff;
+        vertical-align: text-bottom;
+    }
+    .fa {
+        margin-right: 5px;
+    }
+    &-link {
+        font-size: 1.4rem;
+        &:hover {
+            .icon {
+                background: #cbd3da;
+            }
+        }
+    }
+    ul {
+        .nav-link {
+            &:hover {
+                transition: background linear .2s;
+                background: hsla(0, 0%, 78%, .2) !important;
+            }
+        }
+    }
+}

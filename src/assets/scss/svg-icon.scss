@@ -1,0 +1,20 @@
+.icon-book-open {
+    mask: url(./../icons/_ionicons_svg_ios-book.svg);
+}
+
+.icon-bell {
+    mask: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/icon-bell-black.svg);
+}
+
+.icon-arrow {
+    mask: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/icon-arrow-black.svg);
+}
+
+.icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: black;
+    mask-size: cover;
+    vertical-align: middle;
+}
