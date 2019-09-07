@@ -1,8 +1,8 @@
 // tslint:disable-next-line:no-empty-interface
 export interface Menu {
     label: string;
-    link: string;
-    icon: string;
+    link?: string;
+    customIcon: string;
     dropdownTarget?: string;
     children?: {
         label: string;

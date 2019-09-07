@@ -5,7 +5,7 @@ import { ROUTE_URLS } from './route-urls.const';
 const routes: Routes = [
   {
     path: ROUTE_URLS.ADMIN,
-    loadChildren: () => import('./admin/module/admin.module')
+    loadChildren: () => import('./admin/admin.module')
       .then(module => module.AdminModule)
   },
   {

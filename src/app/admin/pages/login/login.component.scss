@@ -5,7 +5,7 @@
     position: fixed;
     z-index: -1;
     top: 0;
-    left: 0;
+    left: 20px;
 }
 
 .hangingLogo {
@@ -38,9 +38,10 @@
     text-align: center;
     h1 {
         font-weight: 300;
-        padding: 12px 20px;
-        display: inline-block;
-        margin-bottom: 0;
+        padding: 14px 20px;
+        display: flex;
+        width: 60px;
+        margin: 0 auto;
         i {
             text-shadow: 2px 2px 2px rgba(0, 0, 0, .2);
         }
@@ -56,7 +57,7 @@
 .card {
     text-align: left;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .1);
-    font-size: 1.6rem;
+    font-size: 1rem;
     border: 0;
     margin-top: -2px;
     input,
@@ -72,11 +73,11 @@
         }
     }
     .alert {
-        font-size: 1.2rem;
+        font-size: 0.875rem;
         margin-top: 1rem;
     }
     .card-footer {
-        font-size: 1.4rem;
+        font-size: 1rem;
     }
 }
 

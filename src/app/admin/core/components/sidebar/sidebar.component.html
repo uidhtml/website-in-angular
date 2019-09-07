@@ -1,13 +1,15 @@
 <div class="sideBarBg"></div>
-<nav class="sidebarMenu p-4">
-    <h2 class="text-light mb-4">Posts</h2>
-    <ul class="nav flex-column" *ngFor="let item of menu">
-        <li class="nav-item">
-            <a href="{{item.link}}" data-toggle="collapse" [attr.data-target]="'#' + item.dropdownTarget" class="nav-link text-light p-3 mb-2 bg-danger rounded"><span
-                class="icon icon-{{item.icon}} text-light"></span>{{item.label | uppercase}}</a>
-            <ul id="{{item.dropdownTarget}}" class="nav flex-column collapse" *ngFor="let child of item.children">
-                <li class="nav-item"><a href="#" class="nav-link text-light p-3 rounded"><i
-                      class="fa fa-{{child.icon}}"></i>{{child.label}}</a></li>
+<nav class="sidebarMenu p-2">
+    <h2 class="text-light p-2 mb-4">Posts</h2>
+    <ul class="nav flex-column">
+        <li class="nav-item mb-2" *ngFor="let item of menu">
+            <a *ngIf="item.link" routerLink="{{item.link}}" routerLinkActive="bg-danger" class="nav-link text-light p-2 rounded"><span
+                class="customIcon icon-{{item.customIcon}} text-light"></span>{{item.label | uppercase}}</a>
+            <a *ngIf="!item.link" data-toggle="collapse" routerLinkActive="bg-danger" [attr.data-target]="'#' + item.dropdownTarget" class="nav-link text-light p-2 rounded"><span
+                class="customIcon icon-{{item.customIcon}} text-light"></span>{{item.label | uppercase}}</a>
+            <ul id="{{item.dropdownTarget}}" class="nav collapse">
+                <li class="nav-item mb-2 text-muted" *ngFor="let child of item.children"><a routerLink="{{child.link}}" class="nav-link p-2 pl-4 pr-4 rounded" routerLinkActive="text-light active text-light"><i
+                    class="fa fa-{{child.icon}}"></i>{{child.label | uppercase}}</a></li>
             </ul>
         </li>
     </ul>

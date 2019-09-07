@@ -1,0 +1,27 @@
+:host ::ng-deep {
+    .ce-block__content,
+    .ce-toolbar__content {
+        max-width: calc(100% - 60px);
+    }
+    .codex-editor__redactor {
+        padding-bottom: 0 !important;
+    }
+    .ce-rawtool__textarea {
+        min-height: 200px;
+        resize: vertical;
+        border-radius: 5px;
+        background-color: #1e2128;
+        font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+        font-size: 1rem;
+        line-height: 1.8;
+        letter-spacing: -0.2px;
+        color: #9ca3b3;
+    }
+}
+
+#editorjs {
+    max-height: 500px;
+    height: 500px;
+    overflow: auto;
+    background: #fff;
+}

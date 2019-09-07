@@ -1,4 +1,4 @@
-$font-size: 1.6rem;
+$font-size: 1.3rem;
 .fa {
     margin-right: 5px;
 }
@@ -17,7 +17,7 @@ $font-size: 1.6rem;
     width: 35px;
     height: 35px;
     i {
-        font-size: 2rem;
+        font-size: $font-size;
         color: #fff;
     }
 }
@@ -28,7 +28,7 @@ $font-size: 1.6rem;
         height: 30px !important;
     }
     .logo {
-        font-size: 2rem !important;
+        font-size: 1.3rem !important;
         .face {
             border-radius: 3px !important;
         }

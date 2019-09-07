@@ -16,20 +16,27 @@
         content: "";
         display: block;
         background: #000;
-        opacity: .8;
+        opacity: .4;
         top: 0;
         left: 0;
     }
 }
 
 h2 {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     font-weight: normal;
 }
 
 .nav {
     position: relative;
-    .icon {
+    .nav-item {
+        flex-basis: 100%;
+        cursor: pointer;
+        a {
+            color: inherit;
+        }
+    }
+    .customIcon {
         width: 16px;
         height: 16px;
         margin-right: 5px;
@@ -40,19 +47,23 @@ h2 {
         margin-right: 5px;
     }
     &-link {
-        font-size: 1.4rem;
         &:hover {
             .icon {
                 background: #cbd3da;
             }
         }
     }
-    ul {
+    .nav {
+        font-size: 0.875rem;
         .nav-link {
-            &:hover {
+            &:hover,
+            &.active {
                 transition: background linear .2s;
                 background: hsla(0, 0%, 78%, .2) !important;
             }
+        }
+        ul {
+            font-size: 0.875rem;
         }
     }
 }
