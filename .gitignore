@@ -3,7 +3,6 @@
 # compiled output
 /dist
 /tmp
-/e2e
 /tests
 /out-tsc
 # Only exists if Bazel was run

@@ -3,6 +3,25 @@
 $bodyBg: #b6dcd5;
 html {
     font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 300;
 }
 
 body {
@@ -33,5 +52,19 @@ fieldset {
         border-radius: 4px;
         padding: 5px 5px 5px 10px;
         background-color: #ffffff;
+    }
+}
+
+.card {
+    border-radius: 6px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .14);
+}
+
+.card-title {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    i {
+        margin-right: 10px;
     }
 }

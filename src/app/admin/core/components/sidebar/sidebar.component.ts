@@ -13,17 +13,17 @@ export class SidebarComponent implements OnInit {
     {
       label: ROUTE_URLS.DASHBAORD,
       link: ROUTE_URLS.DASHBAORD,
-      customIcon: 'book-open'
+      icon: 'th'
     },
     {
       label: ROUTE_URLS.POST,
-      customIcon: 'book-open',
+      icon: 'file-text',
       dropdownTarget: `${ROUTE_URLS.POST}-dropdown`,
       children: [
         {
           label: `${ROUTE_URLS.ALL}`,
           link: `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.POST}/${ROUTE_URLS.ALL}`,
-          icon: 'plus-square',
+          icon: 'th-list',
         },
         {
           label: `${ROUTE_URLS.ADD}`,
@@ -39,28 +39,28 @@ export class SidebarComponent implements OnInit {
     },
     {
       label: ROUTE_URLS.QUERY,
-      customIcon: 'book-open',
+      icon: 'bell-o',
       dropdownTarget: `${ROUTE_URLS.QUERY}-dropdown`,
       children: [
         {
           label: `${ROUTE_URLS.ALL}`,
           link: `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.QUERY}/${ROUTE_URLS.ALL}`,
-          icon: 'plus-square',
+          icon: 'th-list',
         },
         {
           label: `${ROUTE_URLS.ANSWERED}`,
           link: `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.QUERY}/${ROUTE_URLS.ANSWERED}`,
-          icon: 'plus-square',
+          icon: 'commenting',
         },
         {
           label: `${ROUTE_URLS.UNANSWERED}`,
           link: `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.QUERY}/${ROUTE_URLS.UNANSWERED}`,
-          icon: 'edit',
+          icon: 'comment-o',
         },
         {
           label: `${ROUTE_URLS.PENDING}`,
           link: `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.QUERY}/${ROUTE_URLS.PENDING}`,
-          icon: 'edit',
+          icon: 'comment',
         }
       ]
     }

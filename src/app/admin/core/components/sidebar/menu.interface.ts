@@ -2,7 +2,7 @@
 export interface Menu {
     label: string;
     link?: string;
-    customIcon: string;
+    icon: string;
     dropdownTarget?: string;
     children?: {
         label: string;
