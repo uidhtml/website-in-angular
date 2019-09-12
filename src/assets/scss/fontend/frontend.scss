@@ -1,0 +1,26 @@
+@import './frontend_variables';
+body {
+    background: $body_bg;
+    font-family: Rubik, sans-serif
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-weight: 300;
+}
+
+.separator {
+    border-right: solid 1px #eee;
+    width: 0;
+    display: block;
+}

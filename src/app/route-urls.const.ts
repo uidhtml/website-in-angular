@@ -10,5 +10,8 @@ export const ROUTE_URLS = {
   ANSWERED: 'answered',
   UNANSWERED: 'unanswered',
   PENDING: 'pending',
-  LOGOUT: 'logout'
+  LOGOUT: 'logout',
+  HOMEPAGE: 'homepage',
+  ALL_POSTS: 'all-posts',
+  POST_DETAILS: 'post-details'
 };
