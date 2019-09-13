@@ -2,7 +2,7 @@
 header {
     display: flex;
     box-shadow: 0 2px 4px 0 rgba(52, 52, 52, 0.1);
-    border-bottom: solid 1px rgba(0, 0, 0, .1);
+    background: #fff;
     h1 {
         font-size: 0.987rem;
         padding: .5rem 1rem;
@@ -30,6 +30,62 @@ header {
                 top: 0;
                 right: -5px;
                 border-radius: inherit;
+            }
+        }
+    }
+    menu {
+        display: flex;
+        width: 60px;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 0;
+            transition: transform linear .3s;
+        }
+        &:before {
+            transform: translateX(100%);
+            background: #eee;
+        }
+        &:after {
+            transform: translateX(-100%);
+            background: #f44336;
+            color: #fff;
+        }
+        span {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            border-radius: 100%;
+            position: relative;
+            z-index: 1;
+            .mat-icon {
+                display: block;
+            }
+        }
+        &:hover {
+            &::before {
+                transform: translateX(0);
+            }
+        }
+        &.active {
+            &::after {
+                transform: translateX(0);
+            }
+            span {
+                color: #fff;
             }
         }
     }

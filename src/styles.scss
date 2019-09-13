@@ -7,6 +7,20 @@ html {
     -moz-osx-font-smoothing: grayscale;
 }
 
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fff;
+    border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, .2);
+    border-radius: 5px;
+}
+
 body,
 .h1,
 .h2,

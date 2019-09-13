@@ -1,0 +1,19 @@
+.sidebarWrapper {
+    flex-basis: 300px;
+    background: #f4f7f6;
+    margin-left: -300px;
+    transition: margin-left ease-out .3s;
+    position: relative;
+    z-index: 1;
+    box-shadow: 3px 0 3px rgba(0, 0, 0, .1);
+    height: 100vh;
+    overflow: hidden;
+    &.active {
+        margin-left: 0;
+    }
+}
+
+main {
+    position: relative;
+    flex: 1 auto;
+}

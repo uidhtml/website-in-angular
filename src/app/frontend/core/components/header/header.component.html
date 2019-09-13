@@ -1,4 +1,12 @@
 <header>
+    <menu (click)="toggle()" [ngClass]="sidebarIsActive ? 'active' : null">
+        <span>
+      <mat-icon [hidden]="sidebarIsActive">more_vert</mat-icon>
+      <mat-icon [hidden]="!sidebarIsActive">close</mat-icon>
+    </span>
+    </menu>
+
+    <span class="separator"></span>
     <h1 class="logo"><span>&#123;UI&#125;</span> dhtml</h1>
     <span class="separator"></span>
 </header>
