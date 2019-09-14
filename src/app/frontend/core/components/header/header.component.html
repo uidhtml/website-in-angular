@@ -1,12 +1,16 @@
-<header>
+<header class="flex">
     <menu (click)="toggle()" [ngClass]="sidebarIsActive ? 'active' : null">
         <span>
       <mat-icon [hidden]="sidebarIsActive">more_vert</mat-icon>
       <mat-icon [hidden]="!sidebarIsActive">close</mat-icon>
     </span>
     </menu>
-
-    <span class="separator"></span>
-    <h1 class="logo"><span>&#123;UI&#125;</span> dhtml</h1>
-    <span class="separator"></span>
+    <div class="logo" [ngClass]="sidebarIsActive ? 'active' : null"><span>&#123;UI&#125;</span> UIdhtml</div>
+    <nav class="flex">
+        <ul class="flex">
+            <li><a href="#">Tutorials</a></li>
+            <li><a href="#">Videos</a></li>
+            <li><a href="#">Random snapshot</a></li>
+        </ul>
+    </nav>
 </header>

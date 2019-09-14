@@ -8,17 +8,17 @@ html {
 }
 
 ::-webkit-scrollbar {
-    width: 7px;
+    width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #fff;
+    background: #1c253d;
     border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, .2);
-    border-radius: 5px;
+    background: #5869f0;
+    border-radius: 0px;
 }
 
 body,

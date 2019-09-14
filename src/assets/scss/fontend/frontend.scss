@@ -33,6 +33,45 @@ menu {
     font-weight: 300;
 }
 
+h2,
+h3 {
+    font-weight: 400;
+    margin: 2.5rem 0 1rem;
+}
+
+h1 {
+    color: #806e6e;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 100;
+    background-image: linear-gradient(135deg, #73f98f 23px, #fff 0);
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #5d5d5d;
+}
+
+h3 {
+    color: #6d6d6d;
+    font-size: 1.5rem;
+}
+
+p,
+li {
+    color: #777;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+p {
+    margin-bottom: 2rem;
+}
+
+li {
+    color: #333;
+}
+
 .separator {
     border-right: solid 1px #eee;
     width: 0;
@@ -52,4 +91,85 @@ menu {
     z-index: 9;
     background: hsla(100%, 100%, 0%, .8);
     display: none;
+}
+
+.innerPageContainer {
+    padding: 2rem;
+    height: calc(100vh - 51px);
+    overflow: auto;
+    p {
+        a {
+            color: inherit;
+            padding: 2px 5px;
+            background: #f5f3ff;
+            position: relative;
+            text-decoration: none;
+            &:before {
+                content: "";
+                display: none;
+                background: url("./../../../assets/icons/link.svg") no-repeat;
+                background-size: 100% auto;
+                width: 15px;
+                height: 15px;
+                position: absolute;
+                top: -9px;
+                right: -4px;
+            }
+            &:hover {
+                &::before {
+                    display: block;
+                }
+            }
+        }
+        .inline-code {
+            background: rgba(251, 241, 241, 0.78);
+            color: #C44545;
+            padding: 4px 6px;
+            border-radius: 2px;
+            margin: 0 2px;
+            font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+            font-size: 0.9em;
+        }
+    }
+    ul {
+        list-style-type: disc;
+        padding: 1rem 2rem;
+        margin: 1rem 0;
+        background: #f9f9f9;
+        border-radius: 7px;
+        font-size: .9rem;
+        li {
+            margin-bottom: .3rem;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    .delimiter {
+        width: 100%;
+        height: 5rem;
+        position: relative;
+        &:before {
+            display: block;
+            content: "***";
+            font-size: 30px;
+            line-height: 1;
+            letter-spacing: 0.2em;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 14px;
+        }
+    }
+    figure {
+        margin-top: 2rem;
+        figcaption {
+            padding: 1rem;
+            background: #f9f9f9;
+            border-bottom-left-radius: 7px;
+            border-bottom-right-radius: 7px;
+            color: #a5a5a5;
+        }
+    }
 }

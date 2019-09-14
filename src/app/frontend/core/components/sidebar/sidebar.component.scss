@@ -9,7 +9,7 @@
     text-align: left;
     display: flex;
     align-items: center;
-    background: #f44336;
+    background: #694dd8;
     padding: 1rem;
     color: #fff;
     justify-content: space-between;
@@ -17,9 +17,10 @@
 
 h2 {
     font-size: 1.1rem;
+    margin: 0;
     padding: .8rem 1rem;
-    border-bottom: solid 1px #eaeaea;
-    background: #3b4363;
+    //border-bottom: solid 1px #eaeaea;
+    background: #1c253d;
     color: #fff;
     display: flex;
     justify-content: space-between;
@@ -39,25 +40,32 @@ h2 {
 }
 
 nav {
-    height: calc(100vh - 51px);
+    height: calc(100vh - 61px);
+    background: #1c253d;
     overflow: auto;
+    ul {
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: solid 1px #2a3656;
+    }
     li {
-        border-bottom: solid 1px #eaeaea;
+        margin-bottom: 0;
         &:last-child {
             border-bottom: unset;
         }
     }
     a {
         display: block;
-        padding: .8rem 1rem;
+        padding: .4rem 1rem;
         text-decoration: none;
-        font-size: 1rem;
-        color: #3b4363;
+        font-size: .9rem;
         font-weight: 500;
-        transition: background linear .3s;
+        //background: linear-gradient(-44deg, #e8e8e8 8px, transparent 0);
+        transition: background linear .2s;
+        color: #fff;
         &:hover,
         &.active {
-            background: #fff;
+            background: #5869f0;
         }
     }
 }

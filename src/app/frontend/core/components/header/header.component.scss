@@ -2,17 +2,80 @@
 header {
     display: flex;
     box-shadow: 0 2px 4px 0 rgba(52, 52, 52, 0.1);
-    background: #fff;
-    h1 {
-        font-size: 0.987rem;
-        padding: .5rem 1rem;
-        font-weight: 400;
-        color: #555;
+    background: #684cd8;
+    menu {
+        display: flex;
+        width: 60px;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 3px 0 3px rgba(0, 0, 0, 0.1);
+        span {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            border-radius: 100%;
+            position: relative;
+            z-index: 1;
+            .mat-icon {
+                display: block;
+                color: #fff;
+            }
+        }
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 0;
+            transition: transform linear .3s;
+        }
+        &:before {
+            background: #684cd8;
+        }
+        &:after {
+            transform: translateX(-100%);
+            background: #694dd8;
+        }
+        &:hover {
+            &::before {
+                background: #5137b7;
+            }
+        }
+        &.active {
+            &::after {
+                transform: translateX(0);
+                background: #5137b7;
+            }
+            span {
+                color: #fff;
+            }
+        }
+    }
+    .logo {
+        font-size: 1.4rem;
+        padding: 0.11rem 15px 0.11rem 10px;
+        font-weight: 700;
+        line-height: 2.96rem;
+        color: #ffffff;
+        font-family: Poppins, sans-serif;
+        background: #684cd8;
+        &.active {
+            background: #5137b7;
+        }
         span {
             display: inline-block;
             width: 35px;
             height: 35px;
-            background: #581cc7;
+            background: #836ae8;
             border-radius: 100%;
             color: #fff;
             font-size: .9rem;
@@ -33,59 +96,27 @@ header {
             }
         }
     }
-    menu {
-        display: flex;
-        width: 60px;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        position: relative;
-        overflow: hidden;
-        &:before,
-        &:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            z-index: 0;
-            transition: transform linear .3s;
-        }
-        &:before {
-            transform: translateX(100%);
-            background: #eee;
-        }
-        &:after {
-            transform: translateX(-100%);
-            background: #f44336;
-            color: #fff;
-        }
-        span {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
+    nav {
+        flex: 1 auto;
+        justify-content: flex-end;
+        ul {
             align-items: center;
-            padding: 1rem;
-            border-radius: 100%;
-            position: relative;
-            z-index: 1;
-            .mat-icon {
+        }
+        li {
+            white-space: nowrap;
+            color: #fff;
+            height: 100%;
+            a {
+                padding: 8px 16px;
+                height: 100%;
                 display: block;
-            }
-        }
-        &:hover {
-            &::before {
-                transform: translateX(0);
-            }
-        }
-        &.active {
-            &::after {
-                transform: translateX(0);
-            }
-            span {
                 color: #fff;
+                text-decoration: none;
+                line-height: 2.2rem;
+                transition: background .2s linear;
+                &:hover {
+                    background: #5137b7;
+                }
             }
         }
     }
