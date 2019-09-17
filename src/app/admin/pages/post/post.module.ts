@@ -8,21 +8,12 @@ import { ListComponent } from './list/list.component';
 import { PostComponent } from './post.component';
 import { EditorJsComponent } from './../../../utility';
 
-const postChildrenComponent = [
-  AddComponent,
-  EditComponent,
-  ListComponent
-];
-const sharedComponent = [
-  EditorJsComponent
-];
+const postChildrenComponent = [AddComponent, EditComponent, ListComponent];
+const sharedComponent = [EditorJsComponent];
 
 @NgModule({
   declarations: [PostComponent, ...postChildrenComponent, ...sharedComponent],
-  imports: [
-    CommonModule,
-    PostRoutingModule
-  ],
+  imports: [CommonModule, PostRoutingModule],
   exports: [PostComponent, ...postChildrenComponent, ...sharedComponent]
 })
-export class PostModule { }
+export class PostModule {}

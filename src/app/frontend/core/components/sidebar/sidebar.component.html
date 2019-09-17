@@ -1,6 +1,6 @@
 <span class="closeSidebar">Menu <mat-icon>menu</mat-icon></span>
 <nav>
-    <ng-container *ngFor="let item of menu">
+    <div class="block" *ngFor="let item of menu">
         <h2>
             <span>
         <mat-icon>{{item.icon}}</mat-icon>{{item.name | titlecase}}
@@ -11,5 +11,5 @@
             <li *ngFor="let child of item.list"><a routerLink="{{child.link}}">{{child.name  | titlecase}}</a>
             </li>
         </ul>
-    </ng-container>
+    </div>
 </nav>

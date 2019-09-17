@@ -1,0 +1,75 @@
+.card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: unset;
+    border: 0;
+    .cardBg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        top: 0;
+        left: 0;
+        filter: blur(0);
+        transform: scale(1);
+        transform-origin: 50% 100%;
+        transition: filter linear .1s, transform linear .1s;
+    }
+    .cardContent {
+        position: relative;
+        z-index: 1;
+        padding: 1rem;
+        color: #fff;
+        transition: all ease-out .1s;
+        background: linear-gradient(-180deg, transparent, rgba(0, 0, 0, .5));
+    }
+    header {
+        margin-bottom: 10rem;
+        justify-content: space-between;
+        font-size: .7rem;
+    }
+    h2,
+    h3,
+    p {
+        color: inherit;
+    }
+    h2 {
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+    }
+    h3 {
+        font-size: 0.8rem;
+        color: #8e8e8e;
+    }
+    p {
+        color: #b3a4a4;
+    }
+    .readMore {
+        font-size: .7rem;
+        color: inherit;
+        text-decoration: none;
+    }
+    .activityCol {
+        flex-basis: 70px;
+        ul {
+            justify-content: space-between;
+        }
+        li {
+            color: #fff;
+            .material-icons {
+                font-size: inherit;
+                cursor: pointer;
+            }
+        }
+    }
+    &:hover {
+        .cardBg {
+            filter: blur(2px);
+            transform: scale(1.05);
+        }
+        .cardContent {
+            background: linear-gradient(-180deg, transparent, rgba(0, 0, 0, .8));
+        }
+    }
+}

@@ -37,6 +37,11 @@ h2,
 h3 {
     font-weight: 400;
     margin: 2.5rem 0 1rem;
+    color: #6d6d6d;
+    font-size: 1.5rem;
+    &:first-child {
+        margin-top: 0;
+    }
 }
 
 h1 {
@@ -45,16 +50,6 @@ h1 {
     margin-bottom: 1rem;
     font-weight: 100;
     background-image: linear-gradient(135deg, #73f98f 23px, #fff 0);
-}
-
-h2 {
-    font-size: 1.8rem;
-    color: #5d5d5d;
-}
-
-h3 {
-    color: #6d6d6d;
-    font-size: 1.5rem;
 }
 
 p,
@@ -82,6 +77,10 @@ li {
     display: flex;
 }
 
+.flex-column {
+    flex-direction: column;
+}
+
 .overlay {
     width: 100%;
     height: 100%;
@@ -93,10 +92,16 @@ li {
     display: none;
 }
 
-.innerPageContainer {
-    padding: 2rem;
+.pageScroller {
     height: calc(100vh - 51px);
     overflow: auto;
+}
+
+.innerPageContainer {
+    padding: 2rem;
+}
+
+.postDetailsContainer {
     p {
         a {
             color: inherit;

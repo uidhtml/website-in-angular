@@ -1,3 +1,11 @@
+.block {
+    border-bottom: solid 1px #2a3656;
+    padding: 1rem 0;
+    &:hover {
+        background: #2a3656;
+    }
+}
+
 .closeSidebar {
     width: 100%;
     height: 51px;
@@ -20,7 +28,6 @@ h2 {
     margin: 0;
     padding: .8rem 1rem;
     //border-bottom: solid 1px #eaeaea;
-    background: #1c253d;
     color: #fff;
     display: flex;
     justify-content: space-between;
@@ -43,11 +50,6 @@ nav {
     height: calc(100vh - 61px);
     background: #1c253d;
     overflow: auto;
-    ul {
-        margin-bottom: 1rem;
-        padding-bottom: 1rem;
-        border-bottom: solid 1px #2a3656;
-    }
     li {
         margin-bottom: 0;
         &:last-child {
@@ -62,10 +64,28 @@ nav {
         font-weight: 500;
         //background: linear-gradient(-44deg, #e8e8e8 8px, transparent 0);
         transition: background linear .2s;
-        color: #fff;
+        color: rgba(255, 255, 255, .4);
+        position: relative;
+        overflow: hidden;
+        &:after {
+            content: "";
+            width: 14px;
+            height: 14px;
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-45deg);
+            border-radius: 3px;
+            background: #fff;
+            display: none;
+        }
         &:hover,
         &.active {
             background: #5869f0;
+            color: #fff;
+            &:after {
+                display: block;
+            }
         }
     }
 }

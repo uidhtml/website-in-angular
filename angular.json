@@ -31,8 +31,9 @@
                             "./node_modules/bootstrap/dist/css/bootstrap.min.css",
                             "src/styles.scss",
                             "./node_modules/font-awesome/css/font-awesome.css",
-                            "src/assets/scss/fontend/frontend.scss",
-                            "src/assets/scss/svg-icon.scss"
+                            "src/assets/scss/svg-icon.scss",
+                            "src/assets/scss/frontend/frontend.scss"
+
                         ],
                         "scripts": [
                             "./node_modules/jquery/dist/jquery.slim.min.js",

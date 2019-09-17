@@ -20,8 +20,7 @@ import InlineCode from '@editorjs/inline-code';
   styleUrls: ['./editor-js.component.scss']
 })
 export class EditorJsComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     const editor = new EditorJS({
@@ -29,7 +28,7 @@ export class EditorJsComponent implements OnInit {
       tools: {
         header: {
           class: Header,
-          inlineToolbar: ['link'],
+          inlineToolbar: ['link']
         },
         list: {
           class: List,
@@ -37,19 +36,19 @@ export class EditorJsComponent implements OnInit {
         },
         checklist: {
           class: Checklist,
-          inlineToolbar: true,
+          inlineToolbar: true
         },
         paragraph: {
           class: Paragraph,
-          inlineToolbar: true,
+          inlineToolbar: true
         },
         Marker: {
           class: Marker,
-          shortcut: 'CMD+SHIFT+M',
+          shortcut: 'CMD+SHIFT+M'
         },
         inlineCode: {
           class: InlineCode,
-          shortcut: 'CMD+SHIFT+M',
+          shortcut: 'CMD+SHIFT+M'
         },
         embed: Embed,
         quote: Quote,
@@ -57,7 +56,7 @@ export class EditorJsComponent implements OnInit {
         personality: {
           class: Personality,
           config: {
-            endpoint: 'http://localhost:8008/uploadFile',  // Your backend file uploader endpoint
+            endpoint: 'upload-image.php', // Your backend file uploader endpoint
             types: 'image/png, image/jpg, image/bmp'
           }
         },
@@ -66,17 +65,18 @@ export class EditorJsComponent implements OnInit {
           inlineToolbar: true,
           config: {
             rows: 2,
-            cols: 3,
-          },
+            cols: 3
+          }
         },
         image: {
           class: ImageTool,
           config: {
             endpoints: {
-              byFile: 'http://localhost:8000/uploadFile', // Your backend file uploader endpoint
-              byUrl: 'http://localhost:8000/fetchUrl', // Your endpoint that provides uploading by Url
+              byFile:
+                'http://localhost/angular-v8/uidhtml-v8/rest-api/upload-image.php', // Your backend file uploader endpoint
+              byUrl: 'http://localhost:8000/fetchUrl' // Your endpoint that provides uploading by Url
             },
-            types: 'image/png, image/jpg, image/bmp'
+            types: 'image/png, image/jpg, image/jpeg, image/bmp'
           }
         },
         attaches: {
@@ -89,5 +89,4 @@ export class EditorJsComponent implements OnInit {
       }
     });
   }
-
 }
