@@ -9,7 +9,7 @@
       <rect _ngcontent-moa-c6="" fill="#fff" height="11" rx="2" ry="2" width="18" x="3" y="11"></rect>
       <path _ngcontent-moa-c6="" d="M7 11V7a5 5 0 0 1 10 0v4"></path>
     </svg></h1>
-    <form novalidate [formGroup]="form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
         <div class="card bg-danger">
             <div class="card-body">
                 <div class="row mb-4">

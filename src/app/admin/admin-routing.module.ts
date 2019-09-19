@@ -5,6 +5,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ROUTE_URLS } from '../route-urls.const';
 import { LogoutComponent } from './pages/logout/logout.component';
+import { AuthGuard } from '@common/guard/auth.guard';
 
 const routes: Routes = [
   {
@@ -13,11 +14,16 @@ const routes: Routes = [
     children: [
       { path: ROUTE_URLS.LOGIN, component: LoginComponent },
       { path: ROUTE_URLS.LOGOUT, component: LogoutComponent },
-      { path: ROUTE_URLS.DASHBAORD, component: DashboardComponent },
+      {
+        path: ROUTE_URLS.DASHBAORD,
+        component: DashboardComponent,
+        canActivate: [AuthGuard]
+      },
       {
         path: ROUTE_URLS.POST,
         loadChildren: () =>
-          import('./pages/post/post.module').then(m => m.PostModule)
+          import('./pages/post/post.module').then(m => m.PostModule),
+        canActivate: [AuthGuard]
       },
       {
         path: '',

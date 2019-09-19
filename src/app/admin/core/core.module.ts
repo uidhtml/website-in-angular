@@ -5,19 +5,16 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
-import { RotateLogoComponent } from '../../utility';
 import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 const coreComponent = [HeaderComponent, FooterComponent, SidebarComponent];
-const sharedComponent = [RotateLogoComponent];
 
 @NgModule({
-  declarations: [...sharedComponent, ...coreComponent],
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
-  exports: [coreComponent, ...sharedComponent],
+  declarations: [...coreComponent],
+  imports: [CommonModule, RouterModule],
+  exports: [coreComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })
 export class CoreModule {}

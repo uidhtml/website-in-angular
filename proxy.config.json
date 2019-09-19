@@ -1,6 +1,6 @@
 {
     "/api/*": {
-        "target": "http://localhost/angular-v8/uidhtml-v8/rest-api/",
+        "target": "http://localhost/angular-v8/uidhtml-v8",
         "secure": false,
         "logLevel": "debug"
     }

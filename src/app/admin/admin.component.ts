@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  Router,
-  ActivatedRoute,
-  NavigationEnd,
-  ActivationEnd
-} from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
 @Component({
@@ -13,7 +8,7 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-  public isActive: boolean = true;
+  public isLoginActive: boolean = true;
   constructor(
     private readonly activatedRoute: ActivatedRoute,
     private readonly router: Router
@@ -22,17 +17,16 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.firstChild.url.subscribe(param => {
       param[0].path === 'login'
-        ? (this.isActive = false)
-        : (this.isActive = true);
-      console.log(this.isActive);
+        ? (this.isLoginActive = false)
+        : (this.isLoginActive = true);
     });
 
     this.router.events
       .pipe(filter((event: NavigationEnd) => event instanceof NavigationEnd))
       .subscribe(event => {
         event.url.indexOf('login') !== -1
-          ? (this.isActive = false)
-          : (this.isActive = true);
+          ? (this.isLoginActive = false)
+          : (this.isLoginActive = true);
       });
   }
 }

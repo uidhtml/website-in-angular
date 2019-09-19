@@ -6,14 +6,13 @@ import { AddComponent } from './add/add.component';
 import { EditComponent } from './edit/edit.component';
 import { ListComponent } from './list/list.component';
 import { PostComponent } from './post.component';
-import { EditorJsComponent } from './../../../utility';
+import { EditorJsComponent } from '@common/utility';
 
 const postChildrenComponent = [AddComponent, EditComponent, ListComponent];
-const sharedComponent = [EditorJsComponent];
 
 @NgModule({
-  declarations: [PostComponent, ...postChildrenComponent, ...sharedComponent],
+  declarations: [PostComponent, ...postChildrenComponent, EditorJsComponent],
   imports: [CommonModule, PostRoutingModule],
-  exports: [PostComponent, ...postChildrenComponent, ...sharedComponent]
+  exports: [PostComponent, ...postChildrenComponent]
 })
 export class PostModule {}
