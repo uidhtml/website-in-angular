@@ -4,6 +4,7 @@ export const ROUTE_URLS = {
   ADMIN: 'admin',
   ADD: 'add',
   EDIT: 'edit',
+  DELETE: 'delete',
   ALL: 'all',
   POST: 'post',
   QUERY: 'query',

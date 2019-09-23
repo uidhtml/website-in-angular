@@ -2,7 +2,7 @@ header {
     display: flex;
     box-shadow: 0 2px 4px 0 rgba(52, 52, 52, 0.1);
     background: #684cd8;
-    menu {
+    .toggle {
         display: flex;
         width: 60px;
         justify-content: center;
@@ -110,6 +110,7 @@ header {
                 color: #fff;
                 text-decoration: none;
                 line-height: 2.2rem;
+                text-transform: capitalize;
                 transition: background .2s linear;
                 &:hover {
                     background: #5137b7;

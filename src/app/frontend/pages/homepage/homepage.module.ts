@@ -5,15 +5,10 @@ import { HomepageRoutingModule } from './homepage-routing.module';
 import { HomepageComponent } from './homepage.component';
 import { frontendSharedComponent } from '../../shared';
 import { MaterialModule } from '@app/material.module';
-import { RotateLogoComponent, CardComponent } from '@common/utility';
+import { CardComponent } from '@common/utility';
 
 @NgModule({
-  declarations: [
-    HomepageComponent,
-    frontendSharedComponent,
-    RotateLogoComponent,
-    CardComponent
-  ],
+  declarations: [HomepageComponent, frontendSharedComponent, CardComponent],
   imports: [CommonModule, HomepageRoutingModule, MaterialModule],
   exports: [HomepageComponent, HomepageRoutingModule, frontendSharedComponent]
 })

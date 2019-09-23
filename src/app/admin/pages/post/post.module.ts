@@ -7,12 +7,13 @@ import { EditComponent } from './edit/edit.component';
 import { ListComponent } from './list/list.component';
 import { PostComponent } from './post.component';
 import { EditorJsComponent } from '@common/utility';
+import { MaterialModule } from '@app/material.module';
 
 const postChildrenComponent = [AddComponent, EditComponent, ListComponent];
 
 @NgModule({
   declarations: [PostComponent, ...postChildrenComponent, EditorJsComponent],
-  imports: [CommonModule, PostRoutingModule],
+  imports: [CommonModule, PostRoutingModule, MaterialModule],
   exports: [PostComponent, ...postChildrenComponent]
 })
 export class PostModule {}

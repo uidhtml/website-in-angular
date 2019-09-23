@@ -1,5 +1,5 @@
 <header class="flex">
-    <menu (click)="toggle()" [ngClass]="sidebarIsActive ? 'active' : null">
+    <menu class="toggle" (click)="toggle()" [ngClass]="sidebarIsActive ? 'active' : null">
         <span>
       <mat-icon [hidden]="sidebarIsActive">more_vert</mat-icon>
       <mat-icon [hidden]="!sidebarIsActive">close</mat-icon>
@@ -8,10 +8,8 @@
     <a routerLink="/homepage" class="logo" [ngClass]="sidebarIsActive ? 'active' : null"><span>&#123;UI&#125;</span>
     UIdhtml</a>
     <nav class="flex">
-        <ul class="flex">
-            <li><a href="#">Tutorials</a></li>
-            <li><a href="#">Videos</a></li>
-            <li><a href="#">Random snapshot</a></li>
+        <ul class="flex" *ngFor="let item of menu">
+            <li><a routerLink="{{item.url}}">{{item.label}}</a></li>
         </ul>
     </nav>
 </header>

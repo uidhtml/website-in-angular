@@ -1,0 +1,52 @@
+h2 {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+
+.mat-card {
+    background: none;
+    box-shadow: unset;
+}
+
+.form-field-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .mat-form-field,
+    fieldset,
+    .editor {
+        margin-bottom: 2rem;
+        flex-basis: 48%;
+        display: block;
+    }
+    .editor,
+    .mat-card-actions {
+        flex-basis: 100%;
+    }
+    .mat-card-actions {
+        text-align: center;
+    }
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-basis: 100%;
+    button {
+        flex-basis: 100px;
+        margin-right: 20px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.fieldset-column-wrapper {
+    display: flex;
+    justify-content: space-between;
+    .mat-form-field {
+        flex-basis: 30%;
+    }
+}

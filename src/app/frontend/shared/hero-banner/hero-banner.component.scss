@@ -2,6 +2,11 @@
     position: relative;
 }
 
+i {
+    position: relative;
+    z-index: 1;
+}
+
 .bannerContent {
     position: absolute;
     z-index: 1;
@@ -13,9 +18,10 @@
     h1 {
         font-weight: 300;
         font-family: inherit;
-        text-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
     }
     ul {
+        flex-direction: column;
         padding: 2rem;
         justify-content: space-between;
         height: inherit;
@@ -23,19 +29,16 @@
         li {
             color: #fff;
             font-weight: 400;
-            flex-basis: 33%;
             &:first-child {
-                font-size: .9rem;
-                color: #5f9ea0;
+                font-size: 1.1rem;
                 span {
                     display: block;
-                    color: #356b6d;
-                    font-size: .8rem;
+                    color: #89c5c7;
+                    font-size: .9rem;
                 }
             }
             &:nth-child(2) {
                 font-size: 3rem;
-                flex: 1;
                 align-self: center;
                 text-align: center;
                 h1 {
@@ -49,30 +52,101 @@
                 }
             }
             &:last-child {
-                font-size: 1rem;
-                align-self: flex-end;
+                font-size: 1.4rem;
                 ul {
                     padding: 0;
                     height: 30px;
-                    justify-content: flex-end;
                     background: none;
+                    flex-direction: row;
+                    justify-content: flex-end;
                     li {
                         font-size: inherit;
-                        align-self: flex-end;
+                        align-self: auto;
                         flex: initial;
-                        flex-basis: 30px;
+                        flex-basis: 40px;
+                        width: 40px;
+                        height: 40px;
+                        line-height: 40px;
                         text-align: center;
                         cursor: pointer;
-                        color: #8b99bd;
-                        transition: color linear .2s;
+                        color: #d7dce8;
+                        transition: all linear .2s;
+                        border-radius: 100%;
+                        margin-left: 20px;
+                        position: relative;
+                        &:after {
+                            content: '';
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            background: transparent;
+                            border-radius: 100%;
+                            transform: scale(0);
+                            top: 0;
+                            left: 0;
+                            transition: all linear .2s;
+                        }
                         i {
                             font-size: inherit;
+                            line-height: inherit;
                         }
                         &:hover {
-                            color: #fff;
+                            color: #333;
+                            &:after {
+                                transform: scale(1);
+                                background: #fff;
+                            }
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+.social-con {
+    color: #999;
+    flex-wrap: wrap;
+    h3 {
+        color: #fff;
+        margin-bottom: 10px;
+        flex: 1 auto;
+    }
+    .icon-wrapper {
+        justify-content: center;
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+        font-size: 1.4rem;
+        margin-right: 30px;
+        width: 40px;
+        height: 40px;
+        display: block;
+        line-height: 41px;
+        border-radius: 100%;
+        transition: all linear .2s;
+        position: relative;
+        &:last-child {
+            margin-right: 0;
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border-radius: 100%;
+            transform: scale(0);
+            top: 0;
+            left: 0;
+            transition: all linear .2s;
+        }
+        &:hover {
+            color: #333;
+            &:after {
+                transform: scale(1);
+                background: #fff;
             }
         }
     }

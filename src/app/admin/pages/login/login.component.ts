@@ -15,6 +15,8 @@ import { AuthService } from '@app/common/services/auth.service';
 export class LoginComponent implements OnInit {
   public form: FormGroup;
   public errorMsg = ERROR_MESSAGES;
+  public hide: boolean = true;
+  public a = 'abc';
 
   constructor(
     private readonly formBuilder: FormBuilder,
@@ -42,6 +44,10 @@ export class LoginComponent implements OnInit {
     if (this.authService.isLoggedIn) {
       this.navigateToDashboard();
     }
+  }
+  hidePassword($event: Event) {
+    this.hide = !this.hide;
+    return false;
   }
   onSubmit($event: Event) {
     this.httpService

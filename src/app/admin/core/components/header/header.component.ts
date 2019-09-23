@@ -7,12 +7,10 @@ import { ROUTE_URLS } from '../../../../route-urls.const';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  public pageUrls = [
-    {
-      path: ROUTE_URLS.LOGOUT,
-      link: `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.LOGOUT}`
-    }
-  ];
+  public pageUrls = {
+    path: ROUTE_URLS.LOGOUT,
+    link: `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.LOGOUT}`
+  };
 
   constructor() {}
 

@@ -12,6 +12,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
 import { LogoutComponent } from './pages/logout/logout.component';
+import { MaterialModule } from '@app/material.module';
 
 const adminComponents = [
   AdminComponent,
@@ -22,12 +23,19 @@ const adminComponents = [
 
 @NgModule({
   declarations: [...adminComponents],
-  imports: [CommonModule, AdminRoutingModule, ReactiveFormsModule, CoreModule],
+  imports: [
+    CommonModule,
+    AdminRoutingModule,
+    ReactiveFormsModule,
+    CoreModule,
+    MaterialModule
+  ],
   exports: [
     AdminRoutingModule,
     ...adminComponents,
     ReactiveFormsModule,
-    CoreModule
+    CoreModule,
+    MaterialModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })

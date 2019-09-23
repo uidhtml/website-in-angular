@@ -8,67 +8,67 @@ import { ROUTE_URLS } from '../../../../route-urls.const';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-
   public menu: Menu[] = [
     {
       label: ROUTE_URLS.DASHBAORD,
-      link: ROUTE_URLS.DASHBAORD,
-      icon: 'th'
+      headingAsLink: true,
+      cssClass: ROUTE_URLS.DASHBAORD,
+      children: [
+        {
+          label: ROUTE_URLS.DASHBAORD,
+          link: `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.DASHBAORD}`,
+          icon: 'dashboard'
+        }
+      ]
     },
     {
       label: ROUTE_URLS.POST,
-      icon: 'file-text',
-      dropdownTarget: `${ROUTE_URLS.POST}-dropdown`,
       children: [
         {
           label: `${ROUTE_URLS.ALL}`,
           link: `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.POST}/${ROUTE_URLS.ALL}`,
-          icon: 'th-list',
+          icon: 'view_list'
         },
         {
           label: `${ROUTE_URLS.ADD}`,
           link: `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.POST}/${ROUTE_URLS.ADD}`,
-        icon: 'plus-square',
-      },
-      {
-        label: `${ROUTE_URLS.EDIT}`,
-        link: `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.POST}/${ROUTE_URLS.EDIT}`,
-          icon: 'edit',
+          icon: 'add'
+        },
+        {
+          label: `${ROUTE_URLS.EDIT}`,
+          link: `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.POST}/${ROUTE_URLS.EDIT}`,
+          icon: 'edit'
         }
       ]
     },
     {
       label: ROUTE_URLS.QUERY,
-      icon: 'bell-o',
-      dropdownTarget: `${ROUTE_URLS.QUERY}-dropdown`,
       children: [
         {
           label: `${ROUTE_URLS.ALL}`,
           link: `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.QUERY}/${ROUTE_URLS.ALL}`,
-          icon: 'th-list',
+          icon: 'view_list'
         },
         {
           label: `${ROUTE_URLS.ANSWERED}`,
           link: `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.QUERY}/${ROUTE_URLS.ANSWERED}`,
-          icon: 'commenting',
+          icon: 'chat'
         },
         {
           label: `${ROUTE_URLS.UNANSWERED}`,
           link: `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.QUERY}/${ROUTE_URLS.UNANSWERED}`,
-          icon: 'comment-o',
+          icon: 'chat_bubble'
         },
         {
           label: `${ROUTE_URLS.PENDING}`,
           link: `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.QUERY}/${ROUTE_URLS.PENDING}`,
-          icon: 'comment',
+          icon: 'chat_bubble_outline'
         }
       ]
     }
   ];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

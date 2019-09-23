@@ -1,80 +1,50 @@
-<div class="container-fluid pt-3">
-    <div class="card">
-        <header class="card-header">
-            <h2 class="card-title text-secondary"><i class="fa fa-pencil"></i>Edit post</h2>
-        </header>
-        <div class="card-body">
-            <form>
-                <fieldset class="col-md mb-4">
-                    <div class="form-row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="title">Title</label>
-                                <input type="text" class="form-control" id="title" placeholder="Title of the post" required>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="category">Category</label>
-                                <input type="text" class="form-control" id="category" placeholder="Category (Accordion, Slider etc.)" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="category">Sub Category</label>
-                                <input type="text" class="form-control" id="sub-category" placeholder="Sub Category (HTML, CSS, JavaScript etc.)" required>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="category">Description</label>
-                                <input type="text" class="form-control" id="smallDescription" placeholder="Tell something about post" required>
-                                <small id="smallDescriptionHelp" class="form-text text-muted text-right">Description should not
-                  be more then 200 charecters.</small>
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-                <div class="row m-0 p-0">
-                    <fieldset class="col-md mb-4">
-                        <legend>Meta Tags</legend>
-                        <div class="form-row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="category">Title</label>
-                                    <input type="text" class="form-control" id="meta-title" placeholder="Title for SEO" required>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="category">Description</label>
-                                    <input type="text" class="form-control" id="metaDescription" placeholder="Description for SEO" required>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="category">Keywords</label>
-                                    <input type="text" class="form-control" id="metaKeywords" placeholder="Keywords for SEO" required>
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="category">Creation Date</label>
-                            <input type="text" class="form-control" id="creationDate" placeholder="Date" required>
-                        </div>
-                    </div>
-                </div>
-                <app-editor-js></app-editor-js>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Update</button>
-            </form>
+<form>
+    <h2>
+        <mat-icon>edit</mat-icon>Edit post
+    </h2>
+    <div class="form-field-wrapper">
+        <mat-form-field>
+            <input matInput placeholder="Title">
+            <mat-error>Please enter a valid email address</mat-error>
+        </mat-form-field>
+        <mat-form-field hintLabel="Accordion, Navigation etc.">
+            <input matInput placeholder="Category">
+            <mat-error>Please enter Category</mat-error>
+        </mat-form-field>
+        <mat-form-field hintLabel="HTML, CSS etc.">
+            <input matInput placeholder="Sub Category">
+            <mat-error>Please enter Sub Category</mat-error>
+        </mat-form-field>
+        <mat-form-field hintLabel="Max 200 characters">
+            <input matInput placeholder="Describe your post.">
+            <mat-hint align="end">0/200</mat-hint>
+            <mat-error>Please enter Sub Category</mat-error>
+        </mat-form-field>
+        <fieldset>
+            <legend>Meta Tags</legend>
+            <div class="fieldset-column-wrapper">
+                <mat-form-field>
+                    <input matInput placeholder="Title">
+                    <mat-error [hidden]="false">Please enter meta title</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Description">
+                    <mat-error>Please enter meta description</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Keywords">
+                    <mat-error>Please enter meta keywords</mat-error>
+                </mat-form-field>
+            </div>
+        </fieldset>
+        <mat-form-field>
+            <input matInput placeholder="Creation date">
+            <mat-error>Please enter date of creation</mat-error>
+        </mat-form-field>
+        <app-editor-js class="editor"></app-editor-js>
+        <div class="button-wrapper">
+            <button mat-raised-button color="primary">Add</button>
+            <button mat-raised-button color="warn">Reset</button>
         </div>
     </div>
-</div>
+</form>
