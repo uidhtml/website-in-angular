@@ -1,8 +1,8 @@
 <header class="flex">
     <menu class="toggle" (click)="toggle()" [ngClass]="sidebarIsActive ? 'active' : null">
         <span>
-      <mat-icon [hidden]="sidebarIsActive">more_vert</mat-icon>
-      <mat-icon [hidden]="!sidebarIsActive">close</mat-icon>
+      <mat-icon *ngIf="sidebarIsActive">more_vert</mat-icon>
+      <mat-icon *ngIf="!sidebarIsActive">more_horiz</mat-icon>
     </span>
     </menu>
     <a routerLink="/homepage" class="logo" [ngClass]="sidebarIsActive ? 'active' : null"><span>&#123;UI&#125;</span>

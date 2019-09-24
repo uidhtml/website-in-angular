@@ -2,7 +2,7 @@
 <div class="content-wrapper flex">
     <app-sidebar [hidden]="!isSidebarActive" class="sidebar"></app-sidebar>
     <main>
-        <div class="content" [ngClass]="{'login-active' : !isSidebarActive}">
+        <div class="page-content" [ngClass]="{'login-active' : !isSidebarActive}">
             <a *ngIf="!isSidebarActive" mat-raised-button color="primary" routerLink="/">Website</a>
             <router-outlet></router-outlet>
             <app-footer></app-footer>

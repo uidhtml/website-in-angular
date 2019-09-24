@@ -32,14 +32,7 @@ export class SidebarComponent implements OnInit {
     {
       icon: 'videocam',
       name: 'videos',
-      list: [
-        { name: 'html5', link: '' },
-        { name: 'css3/css4', link: '' },
-        { name: 'javascript', link: '' },
-        { name: 'angular', link: '' },
-        { name: 'react', link: '' },
-        { name: 'nodejs', link: '' }
-      ]
+      list: [{ name: 'youtube', link: '', icon: 'youtube' }]
     },
     {
       icon: 'sports',

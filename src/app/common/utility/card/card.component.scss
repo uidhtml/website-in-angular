@@ -55,9 +55,37 @@
         }
         li {
             color: #fff;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            margin-right: 10px;
+            font-size: 1.3rem;
+            &:last-child {
+                margin-right: 0;
+            }
             .material-icons {
-                font-size: inherit;
                 cursor: pointer;
+                width: inherit;
+                height: inherit;
+                background: transparent;
+                border-radius: 100%;
+                line-height: inherit;
+                font-size: inherit;
+                transition: background linear .2s;
+                color: inherit;
+                &::after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    border-radius: inherit;
+                }
+                &:hover {
+                    background: #fff;
+                    color: red;
+                }
             }
         }
     }

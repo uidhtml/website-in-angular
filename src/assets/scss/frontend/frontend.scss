@@ -1,7 +1,7 @@
-@import './frontend_variables';
+@import './_variables';
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 body {
-    background: $body_bg;
+    background: $bodyBg;
 }
 
 *,
@@ -16,38 +16,12 @@ img {
     height: auto;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ol,
-ul,
-menu {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-h2,
-h3 {
-    font-weight: 400;
-    margin: 2.5rem 0 1rem;
-    color: #6d6d6d;
-    font-size: 1.5rem;
-    &:first-child {
-        margin-top: 0;
-    }
-}
-
 h1 {
     color: #806e6e;
     font-size: 3rem;
     margin-bottom: 1rem;
     font-weight: 100;
-    background-image: linear-gradient(135deg, #73f98f 23px, #fff 0);
+    background-image: linear-gradient(135deg, #73f98f 23px, transparent 0);
 }
 
 p,
@@ -97,15 +71,15 @@ li {
             position: relative;
             text-decoration: none;
             &:before {
+                background: url("./../../../assets/icons/link.svg") no-repeat;
                 content: "";
                 display: none;
-                background: url("./../../../assets/icons/link.svg") no-repeat;
                 background-size: 100% auto;
-                width: 15px;
-                height: 15px;
+                width: 25px;
+                height: 25px;
                 position: absolute;
-                top: -9px;
-                right: -4px;
+                top: -15px;
+                right: -2px;
             }
             &:hover {
                 &::before {

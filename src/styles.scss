@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-$bodyBg: #b6dcd5;
+@import './assets/scss/frontend/variables';
 html {
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
@@ -8,16 +8,16 @@ html {
 }
 
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 0;
 }
 
 ::-webkit-scrollbar-track {
-    background: #1c253d;
+    background: transparent;
     border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(0, 123, 255, 0.17);
+    background: transparent;
     border-radius: 0px;
 }
 
@@ -26,31 +26,50 @@ html {
 }
 
 body,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6,
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p,
+ol,
+ul,
+menu {
     font-family: Roboto, Helvetica, Arial, sans-serif;
-    font-weight: 400;
     margin: 0;
+    padding: 0;
+    font-weight: 400;
+    list-style: none;
 }
 
 body {
     background-color: $bodyBg;
 }
 
+h2 {
+    color: #000;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    font-weight: 600;
+}
+
+h2,
+h3 {
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
 p {
     &:last-child {
         margin-bottom: 0;
     }
+}
+
+mark {
+    background-color: #fdfde4;
+    padding: 4px 7px;
 }
 
 fieldset {

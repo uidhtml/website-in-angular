@@ -2,13 +2,13 @@
     &:before {
         content: '';
         display: block;
-        background: #1c253d;
-        height: 10px;
+        background: #e88a3a;
+        height: 3px;
         flex: 1 auto;
         flex-basis: 100%;
     }
     .contentWrapper {
-        height: calc(100vh - 10px);
+        height: calc(100vh - 3px);
         overflow: hidden;
         background: url(./../../assets/images/frontend/page_bg.png);
     }
@@ -22,7 +22,7 @@
     position: relative;
     z-index: 1;
     //box-shadow: 3px 0 3px rgba(0, 0, 0, .1);
-    height: calc(100vh - 10px);
+    height: calc(100vh - 3px);
     overflow: hidden;
     &.active {
         margin-left: 0;

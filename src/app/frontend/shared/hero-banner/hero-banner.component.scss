@@ -1,3 +1,4 @@
+@import './../../../../assets/scss/frontend/variables';
 .heroBanner {
     position: relative;
 }
@@ -20,12 +21,15 @@ i {
         font-family: inherit;
         text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
     }
+    h3 {
+        font-size: 1.2rem;
+    }
     ul {
         flex-direction: column;
         padding: 2rem;
         justify-content: space-between;
         height: inherit;
-        background: linear-gradient(-45deg, rgba(28, 37, 61, 0.1) 50%, rgba(28, 37, 61, 0.39) 0);
+        background: linear-gradient(-45deg, rgba(28, 37, 61, 0.1) 50%, rgba(0, 0, 0, 0.2) 0);
         li {
             color: #fff;
             font-weight: 400;
@@ -74,28 +78,26 @@ i {
                         border-radius: 100%;
                         margin-left: 20px;
                         position: relative;
-                        &:after {
+                    }
+                    .material-icons {
+                        width: inherit;
+                        height: inherit;
+                        background: transparent;
+                        border-radius: 100%;
+                        line-height: inherit;
+                        font-size: inherit;
+                        transition: background linear .2s;
+                        color: inherit;
+                        &::after {
                             content: '';
+                            display: block;
                             position: absolute;
-                            width: 100%;
-                            height: 100%;
-                            background: transparent;
-                            border-radius: 100%;
-                            transform: scale(0);
                             top: 0;
                             left: 0;
-                            transition: all linear .2s;
-                        }
-                        i {
-                            font-size: inherit;
-                            line-height: inherit;
+                            border-radius: inherit;
                         }
                         &:hover {
-                            color: #333;
-                            &:after {
-                                transform: scale(1);
-                                background: #fff;
-                            }
+                            background: $headerBg;
                         }
                     }
                 }
@@ -119,7 +121,7 @@ i {
         text-decoration: none;
         color: inherit;
         font-size: 1.4rem;
-        margin-right: 30px;
+        margin-right: 15px;
         width: 40px;
         height: 40px;
         display: block;
@@ -130,24 +132,14 @@ i {
         &:last-child {
             margin-right: 0;
         }
-        &:after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: transparent;
-            border-radius: 100%;
-            transform: scale(0);
-            top: 0;
-            left: 0;
-            transition: all linear .2s;
+        i {
+            background: none;
+            &::after {
+                display: none;
+            }
         }
         &:hover {
-            color: #333;
-            &:after {
-                transform: scale(1);
-                background: #fff;
-            }
+            color: rgba(255, 255, 255, .8);
         }
     }
 }
