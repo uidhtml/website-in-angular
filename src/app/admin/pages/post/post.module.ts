@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PostRoutingModule } from './post-routing.module';
 import { AddComponent } from './add/add.component';
 import { EditComponent } from './edit/edit.component';
@@ -13,7 +13,13 @@ const postChildrenComponent = [AddComponent, EditComponent, ListComponent];
 
 @NgModule({
   declarations: [PostComponent, ...postChildrenComponent, EditorJsComponent],
-  imports: [CommonModule, PostRoutingModule, MaterialModule],
+  imports: [
+    CommonModule,
+    PostRoutingModule,
+    MaterialModule,
+    ReactiveFormsModule,
+    FormsModule
+  ],
   exports: [PostComponent, ...postChildrenComponent]
 })
 export class PostModule {}

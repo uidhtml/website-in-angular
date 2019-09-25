@@ -20,6 +20,7 @@ h2 {
         margin-bottom: 2rem;
         flex-basis: 48%;
         display: block;
+        max-width: 50%;
     }
     .editor,
     .mat-card-actions {
@@ -48,5 +49,6 @@ h2 {
     justify-content: space-between;
     .mat-form-field {
         flex-basis: 30%;
+        margin-bottom: 0;
     }
 }

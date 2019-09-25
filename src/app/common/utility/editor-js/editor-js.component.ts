@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  EventEmitter,
+  Output,
+  OnChanges
+} from '@angular/core';
 import EditorJS from '@editorjs/editorjs';
 import Header from '@editorjs/header';
 import List from '@editorjs/list';
@@ -19,11 +26,28 @@ import InlineCode from '@editorjs/inline-code';
   templateUrl: './editor-js.component.html',
   styleUrls: ['./editor-js.component.scss']
 })
-export class EditorJsComponent implements OnInit {
+export class EditorJsComponent implements OnInit, OnChanges {
+  @Input() private getEventToEditor: EventEmitter<boolean>;
+  @Output() private sendEditorData: EventEmitter<{}> = new EventEmitter<{}>();
+
+  private editor;
   constructor() {}
 
+  ngOnChanges() {
+    this.getEventToEditor.subscribe(data => {
+      this.editor
+        .save()
+        .then(outputData => {
+          this.sendEditorData.emit(outputData);
+        })
+        .catch(error => {
+          console.log('Saving failed: ', error);
+        });
+    });
+  }
+
   ngOnInit() {
-    const editor = new EditorJS({
+    this.editor = new EditorJS({
       holderId: 'editorjs',
       tools: {
         header: {
