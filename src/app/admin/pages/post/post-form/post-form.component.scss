@@ -1,8 +1,10 @@
+@import './../../../../../assets/scss/frontend/variables';
 h2 {
     display: flex;
     align-items: center;
     text-transform: uppercase;
     font-size: 1.2rem;
+    color: $headerBg;
 }
 
 .mat-card {
@@ -20,7 +22,7 @@ h2 {
         margin-bottom: 2rem;
         flex-basis: 48%;
         display: block;
-        max-width: 50%;
+        max-width: 48%;
     }
     .editor,
     .mat-card-actions {
@@ -28,6 +30,31 @@ h2 {
     }
     .mat-card-actions {
         text-align: center;
+    }
+    .fieldset-column-wrapper {
+        display: flex;
+        justify-content: space-between;
+        .mat-form-field {
+            flex-basis: 30%;
+            margin-bottom: 0;
+        }
+    }
+    .uploadImage {
+        justify-content: space-between;
+        align-items: end;
+        flex-wrap: wrap;
+        .mat-form-field {
+            flex: auto 1;
+            max-width: none;
+            margin-bottom: 10px;
+        }
+        .preview {
+            flex: 1 auto;
+            padding: 10px;
+            background: #fff;
+            border: solid 1px #d6d6d6;
+            display: block;
+        }
     }
 }
 
@@ -41,14 +68,5 @@ h2 {
         &:last-child {
             margin-right: 0;
         }
-    }
-}
-
-.fieldset-column-wrapper {
-    display: flex;
-    justify-content: space-between;
-    .mat-form-field {
-        flex-basis: 30%;
-        margin-bottom: 0;
     }
 }
