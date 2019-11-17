@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class ApiHostService {
   public api: string = '/api';
 
-  cancatUrl(url: string): string {
+  concatUrl(url: string): string {
     return `${this.api}${url}`;
   }
 }

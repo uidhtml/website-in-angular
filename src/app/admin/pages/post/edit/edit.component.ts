@@ -15,10 +15,25 @@ export class EditComponent implements OnInit {
       description: 'Meta Description',
       keywords: 'Meta Keywords'
     },
-    creationDate: new Date(),
-    likes: 0,
-    shared: 0,
-    body: 'I am body'
+    creationDate: 'Wed Oct 30 2019 23:18:36 GMT+0530 (India Standard Time)',
+    youtubeVideoId: 'xyzvq23gjd_v',
+    bannerImageFile: '',
+    shareImageFile: '',
+    bannerImage: 'banner.jpg',
+    shareImage: 'share.jpg',
+    likes: 15,
+    shared: 20,
+    bookmarks: 27,
+    body: {
+      time: 1572728243834,
+      blocks: [
+        { type: 'paragraph', data: { text: 'ascascas' } },
+        { type: 'paragraph', data: { text: 'gfgfgdfg' } },
+        { type: 'header', data: { text: 'rggegg', level: 2 } },
+        { type: 'list', data: { style: 'ordered', items: ['ghjhjhj'] } }
+      ],
+      version: '2.15.0'
+    }
   };
 
   constructor() {}

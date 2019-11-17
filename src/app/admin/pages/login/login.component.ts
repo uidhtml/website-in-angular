@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
   }
   onSubmit($event: Event) {
     this.httpService
-      .login(this.apiHostService.cancatUrl('/login.php'), {
+      .login(this.apiHostService.concatUrl('/login.php'), {
         email: this.form.get('email').value,
         password: this.form.get('password').value
       })

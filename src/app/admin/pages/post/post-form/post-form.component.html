@@ -1,76 +1,108 @@
-<form novalidate [formGroup]="form" (ngSubmit)="submit()" #formGroupDirective>
+<form novalidate [formGroup]="form" (ngSubmit)="submit()" #formGroupDirective enctype="multipart/form-data">
     <h2>
         <mat-icon *ngIf="pageTitle === 'add'">add</mat-icon>
         <mat-icon *ngIf="pageTitle === 'edit'">edit</mat-icon>
-        {{pageTitle}} post
+        {{ pageTitle }} post
     </h2>
     <div class="form-field-wrapper">
-        <mat-form-field>
-            <input matInput placeholder="Title" formControlName="title">
+        <mat-form-field hintLabel="Name of your post.">
+            <input matInput placeholder="Title" formControlName="title" />
             <mat-error>Please enter a valid email address</mat-error>
         </mat-form-field>
         <mat-form-field hintLabel="Accordion, Navigation etc.">
-            <input matInput placeholder="Category" formControlName="category">
+            <input matInput placeholder="Category" formControlName="category" />
             <mat-error>Please enter Category</mat-error>
         </mat-form-field>
         <mat-form-field hintLabel="HTML, CSS etc.">
-            <input matInput placeholder="Sub Category" formControlName="subCategory">
+            <input matInput placeholder="Sub Category" formControlName="subCategory" />
             <mat-error>Please enter Sub Category</mat-error>
         </mat-form-field>
         <mat-form-field hintLabel="Max 200 characters">
-            <input matInput placeholder="Describe your post." formControlName="description">
+            <input matInput placeholder="Describe your post." formControlName="description" />
             <mat-hint align="end">0/200</mat-hint>
             <mat-error>Please enter Sub Category</mat-error>
         </mat-form-field>
         <fieldset>
-            <legend>Meta Tags</legend>
+            <legend>Meta Tags (SEO)</legend>
             <div class="fieldset-column-wrapper" formGroupName="metaTags">
-                <mat-form-field>
-                    <input matInput placeholder="Title" formControlName="title">
+                <mat-form-field hintLabel="Title that suits your post.">
+                    <input matInput placeholder="Title" formControlName="title" />
                     <mat-error [hidden]="false">Please enter meta title</mat-error>
                 </mat-form-field>
-                <mat-form-field>
-                    <input matInput placeholder="Description" formControlName="description">
+                <mat-form-field hintLabel="Describe your post.">
+                    <input matInput placeholder="Description" formControlName="description" />
                     <mat-error>Please enter meta description</mat-error>
                 </mat-form-field>
-                <mat-form-field>
-                    <input matInput placeholder="Keywords" formControlName="keywords">
+                <mat-form-field hintLabel="Keywords help in search.">
+                    <input matInput placeholder="Keywords" formControlName="keywords" />
                     <mat-error>Please enter meta keywords</mat-error>
                 </mat-form-field>
             </div>
         </fieldset>
-        <mat-form-field>
-            <input matInput placeholder="Creation date" formControlName="creationDate">
-            <mat-error>Please enter date of creation</mat-error>
-        </mat-form-field>
-        <fieldset>
-            <legend>Banner Image</legend>
-            <div class="uploadImage flex">
-                <mat-form-field>
-                    <input matInput formControlName="bannerImage" placeholder="Upload banner image (1900x735) px">
-                    <mat-error>Please upload image</mat-error>
+        <div class="half-width">
+            <div class="two-col">
+                <mat-form-field class="col" hintLabel="Paste the youtube video id.">
+                    <input matInput placeholder="Youtube Video Id" formControlName="youtubeVideoId" />
                 </mat-form-field>
-                <button mat-raised-button matSuffix color="warn">Browse</button>
-                <img class="preview" src="./../../../../../assets/images/default-banner-image.jpg">
-            </div>
-        </fieldset>
-        <fieldset>
-            <legend>Social media share Image</legend>
-            <div class="uploadImage flex">
-                <mat-form-field>
-                    <input matInput formControlName="shareImage" placeholder="Upload social media image (1200x630) px">
-                    <mat-error>Please upload image</mat-error>
+                <mat-form-field class="col" hintLabel="Its today's date.">
+                    <input matInput placeholder="Creation date" formControlName="creationDate" />
+                    <mat-error>Please enter date of creation</mat-error>
                 </mat-form-field>
-                <button mat-raised-button matSuffix color="accent">Browse</button>
-                <img class="preview" src="./../../../../../assets/images/default-social-share-image.jpg">
             </div>
-        </fieldset>
+            <div class="full-width three-col">
+                <mat-form-field class="col" hintLabel="Numbers of Likes given to post.">
+                    <input matInput formControlName="likes" />
+                </mat-form-field>
+                <mat-form-field class="col" hintLabel="Numbers of times Shared this post.">
+                    <input matInput formControlName="shared" />
+                </mat-form-field>
+                <mat-form-field class="col" hintLabel="Numbers of bookmarked this post.">
+                    <input matInput formControlName="bookmarks" />
+                </mat-form-field>
+            </div>
 
-        <app-editor-js class="editor" [getEventToEditor]="sendEventToEditor" (sendEditorData)="getEditorData($event)">
-        </app-editor-js>
-        <pre style="flex: 1">{{form.getRawValue() | json}}{{form.status}}</pre>
+        </div>
+        <div class="half-width two-col">
+            <fieldset class="two-col">
+                <legend>Banner Image</legend>
+                <div class="uploadImage flex">
+                    <mat-form-field>
+                        <input matInput [readonly]="true" formControlName="bannerImage" placeholder="Upload image (1900x735) px" />
+                        <mat-error>Please upload banner image</mat-error>
+                    </mat-form-field>
+                    <button mat-raised-button matSuffix color="warn" (click)="browseImage($event,'bannerImage')">Browse</button>
+                    <input type="file" #bannerImageFileInput [hidden]="true" (change)="getFileInputValue($event,'bannerImage')" accept=".jpg,.jpeg,.gif,.png">
+                    <img class="preview" [src]="form.controls.bannerImage.value ?
+                        form.controls.bannerImage.value : 
+                        './../../../../../assets/images/default-banner-image.jpg'" />
+                </div>
+            </fieldset>
+            <fieldset class="flex space-between two-col">
+                <legend>Social media share Image</legend>
+                <div class="uploadImage flex">
+                    <mat-form-field>
+                        <input matInput [readonly]="true" formControlName="shareImage" placeholder="Upload image (1200x630) px" />
+                        <mat-error>Please upload share image</mat-error>
+                    </mat-form-field>
+                    <button mat-raised-button matSuffix color="accent" (click)="browseImage($event,'shareImage')">Browse</button>
+                    <input type="file" #shareImageFileInput [hidden]="true" (change)="getFileInputValue($event,'shareImage')" accept=".jpg,.jpeg,.gif,.png">
+                    <img class="preview" [src]="form.controls.shareImage.value ?
+                        form.controls.bannerImage.value : 
+                        './../../../../../assets/images/default-social-share-image.jpg'" />
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="editorWrapper">
+            <app-editor-js class="editor" [editorData]="form.controls.body.value" (sendEditorData)="getEditorData($event)">
+            </app-editor-js>
+            <mat-error style="font-size: 12px; padding: 10px 0;" *ngIf="isBodyEmpty">Body of post is empty.</mat-error>
+        </div>
+
+        <pre style="flex: 1">{{ form.getRawValue() | json }}{{ form.status }}</pre>
         <div class="button-wrapper">
-            <button mat-raised-button color="primary" [disabled]="!form.valid">Add</button>
+            <button *ngIf="pageTitle === 'add'" mat-raised-button color="primary" [disabled]="!form.valid">Add</button>
+            <button *ngIf="pageTitle === 'edit'" mat-raised-button color="primary" [disabled]="!form.valid">Update</button>
             <button mat-raised-button color="warn" (click)="resetForm(); $event.preventDefault()">Reset</button>
         </div>
     </div>

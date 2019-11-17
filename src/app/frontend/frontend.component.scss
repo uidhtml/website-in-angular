@@ -1,8 +1,9 @@
+@import './../../assets/scss/frontend/_variables';
 .outerWrapper {
     &:before {
         content: '';
         display: block;
-        background: #e88a3a;
+        background: $outerWrapperStripBg;
         height: 3px;
         flex: 1 auto;
         flex-basis: 100%;

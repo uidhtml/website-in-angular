@@ -26,29 +26,16 @@ import InlineCode from '@editorjs/inline-code';
   templateUrl: './editor-js.component.html',
   styleUrls: ['./editor-js.component.scss']
 })
-export class EditorJsComponent implements OnInit, OnChanges {
-  @Input() private getEventToEditor: EventEmitter<boolean>;
+export class EditorJsComponent implements OnInit {
+  @Input() editorData: { time: number; blocks: []; version: string };
   @Output() private sendEditorData: EventEmitter<{}> = new EventEmitter<{}>();
 
   private editor;
   constructor() {}
-
-  ngOnChanges() {
-    this.getEventToEditor.subscribe(data => {
-      this.editor
-        .save()
-        .then(outputData => {
-          this.sendEditorData.emit(outputData);
-        })
-        .catch(error => {
-          console.log('Saving failed: ', error);
-        });
-    });
-  }
-
   ngOnInit() {
     this.editor = new EditorJS({
-      holderId: 'editorjs',
+      holder: 'editorjs',
+      placeholder: 'Let`s write an awesome story!',
       tools: {
         header: {
           class: Header,
@@ -97,7 +84,7 @@ export class EditorJsComponent implements OnInit, OnChanges {
           config: {
             endpoints: {
               byFile:
-                'http://localhost/angular-v8/uidhtml-v8/rest-api/upload-image.php', // Your backend file uploader endpoint
+                'http://localhost/angular-v8/uidhtml-v8/api/upload-image.php', // Your backend file uploader endpoint
               byUrl: 'http://localhost:8000/fetchUrl' // Your endpoint that provides uploading by Url
             },
             types: 'image/png, image/jpg, image/jpeg, image/bmp'
@@ -110,7 +97,21 @@ export class EditorJsComponent implements OnInit, OnChanges {
             types: 'application/zip'
           }
         }
-      }
+      },
+      onReady: () => {
+        console.log('Editor.js is ready to work!');
+      },
+      onChange: () => {
+        this.editor
+          .save()
+          .then(outputData => {
+            this.sendEditorData.emit(outputData);
+          })
+          .catch(error => {
+            console.log('Saving failed: ', error);
+          });
+      },
+      data: this.editorData
     });
   }
 }

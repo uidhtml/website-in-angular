@@ -4,20 +4,26 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PostRoutingModule } from './post-routing.module';
 import { AddComponent } from './add/add.component';
 import { EditComponent } from './edit/edit.component';
-import { ListComponent } from './list/list.component';
+import { PostListComponent } from './post-list/post-list.component';
 import { PostComponent } from './post.component';
-import { EditorJsComponent } from '@common/utility';
+import {
+  EditorJsComponent,
+  DialogComponent,
+  DataTableComponent
+} from '@common/utility';
 import { MaterialModule } from '@app/material.module';
 import { PostFormComponent } from './post-form/post-form.component';
 
-const postChildrenComponent = [AddComponent, EditComponent, ListComponent];
+const postChildrenComponent = [AddComponent, EditComponent, PostListComponent];
 
 @NgModule({
   declarations: [
     PostComponent,
     ...postChildrenComponent,
     EditorJsComponent,
-    PostFormComponent
+    PostFormComponent,
+    DialogComponent,
+    DataTableComponent
   ],
   imports: [
     CommonModule,
@@ -31,6 +37,7 @@ const postChildrenComponent = [AddComponent, EditComponent, ListComponent];
     ...postChildrenComponent,
     MaterialModule,
     PostFormComponent
-  ]
+  ],
+  entryComponents: [DialogComponent]
 })
 export class PostModule {}
