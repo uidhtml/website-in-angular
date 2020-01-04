@@ -36,7 +36,7 @@ h1 {
 
 .loginPage {
     width: 100%;
-    max-width: 32rem;
+    max-width: 50rem;
     line-height: 1;
     position: fixed;
     top: 50%;
@@ -52,7 +52,7 @@ h1 {
     p {
         margin-bottom: 0;
         color: #fff;
-        font-size: 1.3rem;
+        font-size: 2.3rem;
         line-height: 1;
         text-transform: capitalize;
         padding-left: 24px;
@@ -98,7 +98,7 @@ h1 {
         }
     }
     .mat-card-content {
-        font-size: .9rem;
+        font-size: 1.4rem;
     }
     .mat-card-footer,
     .mat-card-actions {
@@ -117,7 +117,7 @@ h1 {
             margin-right: 10px;
         }
         .mat-icon-button {
-            font-size: 1.2rem !important;
+            font-size: 1.7rem !important;
             .mat-icon {
                 margin-right: 0;
             }

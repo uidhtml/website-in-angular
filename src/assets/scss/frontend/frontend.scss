@@ -18,7 +18,7 @@ img {
 
 h1 {
     color: #806e6e;
-    font-size: 3rem;
+    font-size: 4.8rem;
     margin-bottom: 1rem;
     font-weight: 100;
     background-image: linear-gradient(135deg, #73f98f 23px, transparent 0);
@@ -27,7 +27,7 @@ h1 {
 p,
 li {
     color: #80868b;
-    font-size: 0.9375rem;
+    font-size: 1.5rem;
     line-height: 1.5;
 }
 
@@ -59,7 +59,7 @@ li {
 }
 
 .innerPageContainer {
-    padding: 2rem;
+    padding: 4rem;
 }
 
 .postDetailsContainer {
@@ -71,8 +71,8 @@ li {
             position: relative;
             text-decoration: none;
             &:before {
-                background: url("./../../../assets/icons/link.svg") no-repeat;
-                content: "";
+                background: url('./../../../assets/icons/link.svg') no-repeat;
+                content: '';
                 display: none;
                 background-size: 100% auto;
                 width: 25px;
@@ -89,7 +89,7 @@ li {
         }
         .inline-code {
             background: rgba(251, 241, 241, 0.78);
-            color: #C44545;
+            color: #c44545;
             padding: 4px 6px;
             border-radius: 2px;
             margin: 0 2px;
@@ -103,9 +103,9 @@ li {
         margin: 1rem 0;
         background: #f9f9f9;
         border-radius: 7px;
-        font-size: .9rem;
+        font-size: 0.9rem;
         li {
-            margin-bottom: .3rem;
+            margin-bottom: 0.3rem;
             &:last-child {
                 margin-bottom: 0;
             }
@@ -117,7 +117,7 @@ li {
         position: relative;
         &:before {
             display: block;
-            content: "***";
+            content: '***';
             font-size: 30px;
             line-height: 1;
             letter-spacing: 0.2em;

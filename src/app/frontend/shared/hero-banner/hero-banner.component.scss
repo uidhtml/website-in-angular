@@ -22,23 +22,24 @@ i {
         text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
     }
     h3 {
-        font-size: 1.2rem;
+        font-size: 2rem;
     }
     ul {
         flex-direction: column;
-        padding: 2rem;
+        padding: 4rem;
         justify-content: space-between;
         height: inherit;
-        background: linear-gradient(-45deg, rgba(28, 37, 61, 0.1) 50%, rgba(0, 0, 0, 0.2) 0);
+        background: linear-gradient( -45deg, rgba(28, 37, 61, 0.1) 50%, rgba(0, 0, 0, 0.2) 0);
         li {
             color: #fff;
             font-weight: 400;
             &:first-child {
-                font-size: 1.1rem;
+                font-size: 1.6rem;
                 span {
                     display: block;
                     color: #89c5c7;
-                    font-size: .9rem;
+                    font-size: 1.6rem;
+                    margin-top: 5px;
                 }
             }
             &:nth-child(2) {
@@ -52,12 +53,12 @@ i {
                     margin-bottom: 10px;
                 }
                 p {
-                    font-size: 1.2rem;
+                    font-size: 1.8rem;
                     margin-bottom: 3rem;
                 }
             }
             &:last-child {
-                font-size: 1.4rem;
+                font-size: 2rem;
                 ul {
                     padding: 0;
                     height: 30px;
@@ -75,7 +76,7 @@ i {
                         text-align: center;
                         cursor: pointer;
                         color: #d7dce8;
-                        transition: all linear .2s;
+                        transition: all linear 0.2s;
                         border-radius: 100%;
                         margin-left: 20px;
                         position: relative;
@@ -87,7 +88,7 @@ i {
                         border-radius: 100%;
                         line-height: inherit;
                         font-size: inherit;
-                        transition: background linear .2s;
+                        transition: background linear 0.2s;
                         color: inherit;
                         &::after {
                             content: '';
@@ -121,14 +122,14 @@ i {
     a {
         text-decoration: none;
         color: inherit;
-        font-size: 1.4rem;
+        font-size: 3rem;
         margin-right: 15px;
         width: 40px;
         height: 40px;
         display: block;
         line-height: 41px;
         border-radius: 100%;
-        transition: all linear .2s;
+        transition: all linear 0.2s;
         position: relative;
         &:last-child {
             margin-right: 0;
@@ -140,7 +141,7 @@ i {
             }
         }
         &:hover {
-            color: rgba(255, 255, 255, .8);
+            color: rgba(255, 255, 255, 0.8);
         }
     }
 }

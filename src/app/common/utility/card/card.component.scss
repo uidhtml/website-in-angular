@@ -16,8 +16,8 @@
     .cardContent {
         position: relative;
         z-index: 1;
-        padding: 1rem;
-        transition: all ease-out .5s;
+        padding: 2.5rem;
+        transition: all ease-out 0.5s;
         a {
             margin: auto 0 auto auto;
             display: block;
@@ -28,18 +28,18 @@
     header {
         margin-bottom: 1rem;
         justify-content: space-between;
-        font-size: .7rem;
+        font-size: 1.3rem;
         align-items: center;
     }
     h2 {
-        font-size: 1.0625rem;
-        line-height: 1.2;
+        font-size: 1.8rem;
+        line-height: 2.2rem;
         font-weight: 400;
         margin-bottom: 1rem;
         color: inherit;
     }
     h3 {
-        font-size: 0.8rem;
+        font-size: 1.4rem;
         color: #8e8e8e;
         margin-bottom: 10px;
     }
@@ -47,7 +47,7 @@
         margin-bottom: 1rem;
     }
     .readMore {
-        font-size: .7rem;
+        font-size: 0.7rem;
         color: inherit;
         text-decoration: none;
     }
@@ -62,7 +62,7 @@
             line-height: 30px;
             text-align: center;
             margin-right: 10px;
-            font-size: 1.3rem;
+            font-size: 2.2rem;
             &:last-child {
                 margin-right: 0;
             }
@@ -74,7 +74,7 @@
                 border-radius: 100%;
                 line-height: inherit;
                 font-size: inherit;
-                transition: background linear .2s;
+                transition: background linear 0.2s;
                 color: inherit;
                 &::after {
                     content: '';

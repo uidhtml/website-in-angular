@@ -21,16 +21,7 @@ export interface DataTableElements {
 })
 export class PostListComponent implements OnInit {
   public isEmpty: boolean = true;
-  public rows: DataTableElements[] = [
-    {
-      id: 1,
-      title: 'Hydrogen',
-      category: 1.0079,
-      subCategory: 'H',
-      description: 'H',
-      bannerImage: 'whatsapp_image_2019-08-21_at_2.jpeg'
-    }
-  ];
+  public rows: DataTableElements[] = [];
   public header: Array<any> = [
     { name: 'id', label: 'No.' },
     { name: 'title', label: 'Title' },
@@ -39,17 +30,7 @@ export class PostListComponent implements OnInit {
     { name: 'description', label: 'Description' },
     { name: 'bannerImage', label: 'Image' }
   ];
-  public columnDefs = [
-    { headerName: 'Make', field: 'make' },
-    { headerName: 'Model', field: 'model' },
-    { headerName: 'Price', field: 'price' }
-  ];
 
-  public rowData = [
-    { make: 'Toyota', model: 'Celica', price: 35000 },
-    { make: 'Ford', model: 'Mondeo', price: 32000 },
-    { make: 'Porsche', model: 'Boxter', price: 72000 }
-  ];
   constructor(
     private readonly httpService: HttpService,
     private readonly apiHostService: ApiHostService
@@ -74,6 +55,7 @@ export class PostListComponent implements OnInit {
       .subscribe((data: { success: number; results: {}[] }) => {
         console.log(data);
         if (data.results.length) {
+          this.rows = data.results;
           this.isEmpty = false;
         } else {
           this.isEmpty = true;

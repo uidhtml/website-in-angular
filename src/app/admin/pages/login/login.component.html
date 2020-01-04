@@ -6,10 +6,21 @@
 <div class="loginPage">
     <div class="card-header">
         <p class="text-light">admin</p>
-        <h1 class="rounded-top bg-danger text-light"><svg _ngcontent-moa-c6="" class="feather feather-lock" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-        <rect _ngcontent-moa-c6="" fill="#fff" height="11" rx="2" ry="2" width="18" x="3" y="11"></rect>
+        <h1 class="rounded-top bg-danger text-light">
+            <svg _ngcontent-moa-c6="" class="feather feather-lock" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+        <rect
+          _ngcontent-moa-c6=""
+          fill="#fff"
+          height="11"
+          rx="2"
+          ry="2"
+          width="18"
+          x="3"
+          y="11"
+        ></rect>
         <path _ngcontent-moa-c6="" d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-      </svg></h1>
+      </svg>
+        </h1>
     </div>
 
     <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
@@ -76,27 +87,52 @@
                 </div>
             </div>
         </div> -->
-        <mat-card [ngClass]="{'error':!form.valid && (form.get('email').dirty || form.get('email').touched || form.get('password').dirty || form.get('password').touched)}">
+        <mat-card [ngClass]="{
+        error:
+          !form.valid &&
+          (form.get('email').dirty ||
+            form.get('email').touched ||
+            form.get('password').dirty ||
+            form.get('password').touched)
+      }">
             <mat-card-content>
-                <mat-form-field class="full-width" [ngClass]="{'error' : !form.get('email').valid && (form.get('email').dirty || form.get('email').touched)}">
-                    <input matInput placeholder="Username" formControlName="email">
+                <mat-form-field class="full-width" [ngClass]="{
+            error:
+              !form.get('email').valid &&
+              (form.get('email').dirty || form.get('email').touched)
+          }">
+                    <input matInput placeholder="Username" formControlName="email" />
                     <mat-icon matPrefix>person</mat-icon>
                     <mat-error>
                         <ng-container *ngFor="let msg of errorMsg.email">
-                            <ng-container *ngIf="form.get('email').hasError(msg.type) && (form.get('email').dirty || form.get('email').touched)">
-                                {{msg.message}}
+                            <ng-container *ngIf="
+                  form.get('email').hasError(msg.type) &&
+                  (form.get('email').dirty || form.get('email').touched)
+                ">
+                                {{ msg.message }}
                             </ng-container>
                         </ng-container>
                     </mat-error>
                 </mat-form-field>
-                <mat-form-field class="full-width" [ngClass]="{'error' : !form.get('password').valid && (form.get('password').dirty || form.get('password').touched)}">
-                    <input matInput placeholder="Password" formControlName="password" [type]="hide ? 'password' : 'text'">
+                <mat-form-field class="full-width" [ngClass]="{
+            error:
+              !form.get('password').valid &&
+              (form.get('password').dirty || form.get('password').touched)
+          }">
+                    <input matInput placeholder="Password" formControlName="password" [type]="hide ? 'password' : 'text'" />
                     <mat-icon matPrefix>vpn_key</mat-icon>
-                    <button mat-icon-button matSuffix [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide"><mat-icon (click)="hide = !hide; $event.preventDefault()">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon></button>
+                    <button mat-icon-button matSuffix [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon (click)="hide = !hide; $event.preventDefault()">{{
+              hide ? 'visibility_off' : 'visibility'
+            }}</mat-icon>
+          </button>
                     <mat-error>
                         <ng-container *ngFor="let msg of errorMsg.password">
-                            <ng-container *ngIf="form.get('password').hasError(msg.type) && (form.get('password').dirty || form.get('password').touched)">
-                                {{msg.message}}
+                            <ng-container *ngIf="
+                  form.get('password').hasError(msg.type) &&
+                  (form.get('password').dirty || form.get('password').touched)
+                ">
+                                {{ msg.message }}
                             </ng-container>
                         </ng-container>
                     </mat-error>
@@ -104,13 +140,17 @@
             </mat-card-content>
             <mat-card-footer>
                 <mat-card-actions>
-                    <button mat-raised-button color="primary" [disabled]="!form.valid">LOGIN<mat-icon>arrow_right</mat-icon></button>
-                    <a mat-button>Forget password<mat-icon class="ml-1">vpn_key</mat-icon></a>
-                </mat-card-actions>
-            </mat-card-footer>
-
-        </mat-card>
-    </form>
-    <pre style="color:#fff; font-size:.9rem; margin-top: 20px; text-align: left; line-height: 1.5">Form value: {{form.value | json}}<br><br>valid: {{form.valid}}
+                    <button mat-raised-button color="primary" [disabled]="!form.valid">
+            LOGIN<mat-icon>arrow_right</mat-icon>
+          </button>
+                    <a mat-button>Forget password<mat-icon class="ml-1">vpn_key</mat-icon></a
+          >
+        </mat-card-actions>
+      </mat-card-footer>
+    </mat-card>
+  </form>
+  <pre
+    style="color:#fff; font-size:1.6rem; margin-top: 20px; text-align: left; line-height: 1.5"
+  >Form value: {{form.value | json}}<br><br>valid: {{form.valid}}
         </pre>
 </div>

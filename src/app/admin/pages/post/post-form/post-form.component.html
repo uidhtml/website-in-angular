@@ -60,9 +60,8 @@
                     <input matInput formControlName="bookmarks" />
                 </mat-form-field>
             </div>
-
         </div>
-        <div class="half-width two-col">
+        <div class="full-width two-col">
             <fieldset class="two-col">
                 <legend>Banner Image</legend>
                 <div class="uploadImage flex">
@@ -70,11 +69,16 @@
                         <input matInput [readonly]="true" formControlName="bannerImage" placeholder="Upload image (1900x735) px" />
                         <mat-error>Please upload banner image</mat-error>
                     </mat-form-field>
-                    <button mat-raised-button matSuffix color="warn" (click)="browseImage($event,'bannerImage')">Browse</button>
-                    <input type="file" #bannerImageFileInput [hidden]="true" (change)="getFileInputValue($event,'bannerImage')" accept=".jpg,.jpeg,.gif,.png">
-                    <img class="preview" [src]="form.controls.bannerImage.value ?
-                        form.controls.bannerImage.value : 
-                        './../../../../../assets/images/default-banner-image.jpg'" />
+                    <button mat-raised-button matSuffix color="warn" (click)="browseImage($event, 'bannerImage')">
+            Browse
+          </button>
+                    <input type="file" #bannerImageFileInput [hidden]="true" (change)="getFileInputValue($event, 'bannerImage')" accept=".jpg,.jpeg,.gif,.png" />
+                    <img class="preview" [src]="
+              form.controls.bannerImage.value
+                ? './../../../../../assets/uploads/images/post-images/' +
+                  form.controls.bannerImage.value
+                : './../../../../../assets/images/default-banner-image.jpg'
+            " />
                 </div>
             </fieldset>
             <fieldset class="flex space-between two-col">
@@ -84,16 +88,21 @@
                         <input matInput [readonly]="true" formControlName="shareImage" placeholder="Upload image (1200x630) px" />
                         <mat-error>Please upload share image</mat-error>
                     </mat-form-field>
-                    <button mat-raised-button matSuffix color="accent" (click)="browseImage($event,'shareImage')">Browse</button>
-                    <input type="file" #shareImageFileInput [hidden]="true" (change)="getFileInputValue($event,'shareImage')" accept=".jpg,.jpeg,.gif,.png">
-                    <img class="preview" [src]="form.controls.shareImage.value ?
-                        form.controls.bannerImage.value : 
-                        './../../../../../assets/images/default-social-share-image.jpg'" />
+                    <button mat-raised-button matSuffix color="accent" (click)="browseImage($event, 'shareImage')">
+            Browse
+          </button>
+                    <input type="file" #shareImageFileInput [hidden]="true" (change)="getFileInputValue($event, 'shareImage')" accept=".jpg,.jpeg,.gif,.png" />
+                    <img class="preview" [src]="
+              form.controls.shareImage.value
+                ? './../../../../../assets/uploads/images/post-images/' +
+                  form.controls.shareImage.value
+                : './../../../../../assets/images/default-social-share-image.jpg'
+            " />
                 </div>
             </fieldset>
         </div>
 
-        <div class="editorWrapper">
+        <div class="full-width editorWrapper">
             <app-editor-js class="editor" [editorData]="form.controls.body.value" (sendEditorData)="getEditorData($event)">
             </app-editor-js>
             <mat-error style="font-size: 12px; padding: 10px 0;" *ngIf="isBodyEmpty">Body of post is empty.</mat-error>
@@ -101,9 +110,15 @@
 
         <pre style="flex: 1">{{ form.getRawValue() | json }}{{ form.status }}</pre>
         <div class="button-wrapper">
-            <button *ngIf="pageTitle === 'add'" mat-raised-button color="primary" [disabled]="!form.valid">Add</button>
-            <button *ngIf="pageTitle === 'edit'" mat-raised-button color="primary" [disabled]="!form.valid">Update</button>
-            <button mat-raised-button color="warn" (click)="resetForm(); $event.preventDefault()">Reset</button>
+            <button *ngIf="pageTitle === 'add'" mat-raised-button color="primary" [disabled]="!form.valid">
+        Add
+      </button>
+            <button *ngIf="pageTitle === 'edit'" mat-raised-button color="primary" [disabled]="!form.valid">
+        Update
+      </button>
+            <button mat-raised-button color="warn" (click)="resetForm(); $event.preventDefault()">
+        Reset
+      </button>
         </div>
     </div>
 </form>

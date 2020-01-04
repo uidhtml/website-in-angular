@@ -2,7 +2,6 @@ h2 {
     display: flex;
     align-items: center;
     text-transform: uppercase;
-    font-size: 1.2rem;
 }
 
 .mat-card {
@@ -15,7 +14,7 @@ table {
     background: none;
     box-shadow: unset;
     th {
-        font-size: 1rem;
+        font-size: 1.4rem;
         color: #333;
     }
     th,
@@ -29,6 +28,11 @@ table {
 .mat-paginator {
     margin: 0 auto;
     background: none;
+    font-size: 14px;
+}
+
+.mat-paginator-page-size {
+    font-size: 14px;
 }
 
 .mat-card-content {

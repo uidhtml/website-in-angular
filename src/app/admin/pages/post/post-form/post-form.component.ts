@@ -49,6 +49,7 @@ export class PostFormComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log(this.postData);
     this.initForm();
     if (this.postData) {
       this.pageTitle = 'edit';

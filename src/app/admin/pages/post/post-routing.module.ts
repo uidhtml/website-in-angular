@@ -12,9 +12,10 @@ const routes: Routes = [
     component: PostComponent,
     children: [
       { path: ROUTE_URLS.ADD, component: AddComponent },
-      { path: ROUTE_URLS.EDIT, component: EditComponent },
+      { path: `${ROUTE_URLS.EDIT}/:id`, component: EditComponent },
       { path: ROUTE_URLS.ALL, component: PostListComponent },
-      { path: '', redirectTo: ROUTE_URLS.ALL, pathMatch: 'full' }
+      { path: '', redirectTo: ROUTE_URLS.ALL, pathMatch: 'full' },
+      { path: '**', redirectTo: ROUTE_URLS.ALL, pathMatch: 'full' }
     ]
   }
 ];
