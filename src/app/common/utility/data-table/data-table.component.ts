@@ -36,7 +36,6 @@ export class DataTableComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
   onRowClicked(id, mode) {
-    console.log('Row clicked: ', id, mode);
     if (mode === 'edit') {
       this.router.navigate([`/admin/post/${ROUTE_URLS.EDIT}/${id}`]);
     }

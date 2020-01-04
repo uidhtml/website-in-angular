@@ -22,7 +22,7 @@ export class EditComponent implements OnInit {
         .getHttp(
           this.apiHostService.concatUrl(`/post-details.php?id=${params.id}`)
         )
-        .subscribe(data => {
+        .subscribe((data: { success: number; results: {}[] }) => {
           this.postData = data.results[0];
         });
     });

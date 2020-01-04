@@ -3,4 +3,5 @@ export interface DialogData {
   title: string;
   content: string;
   error: {}[];
+  msg: string;
 }

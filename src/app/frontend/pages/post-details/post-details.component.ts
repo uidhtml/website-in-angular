@@ -176,11 +176,8 @@ export class PostDetailsComponent implements OnInit {
           break;
         default:
           console.log('Unknown block type', block.type);
-          console.log(block);
           break;
       }
-      // console.log(block);
-      console.log(html);
     });
     return html;
   }

@@ -52,8 +52,7 @@ export class PostListComponent implements OnInit {
   ngOnInit() {
     this.httpService
       .getHttp(this.apiHostService.concatUrl('/all-post.php'))
-      .subscribe((data: { success: number; results: {}[] }) => {
-        console.log(data);
+      .subscribe((data: { success: number; results: DataTableElements[] }) => {
         if (data.results.length) {
           this.rows = data.results;
           this.isEmpty = false;

@@ -49,7 +49,6 @@ export class PostFormComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log(this.postData);
     this.initForm();
     if (this.postData) {
       this.pageTitle = 'edit';
@@ -150,7 +149,10 @@ export class PostFormComponent implements OnInit {
         );
     } else {
       this.httpService
-        .putHttp(this.apiHostService.concatUrl('/edit-post.php'), this.formData)
+        .putHttp(
+          this.apiHostService.concatUrl('/update-post.php'),
+          this.formData
+        )
         .subscribe(data => console.log(data));
     }
   }
