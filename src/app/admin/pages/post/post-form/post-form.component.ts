@@ -4,27 +4,28 @@ import {
   EventEmitter,
   ViewChild,
   Input,
-  ElementRef
+  ElementRef,
 } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
   FormArray,
   Validators,
-  FormGroupDirective
+  FormGroupDirective,
 } from '@angular/forms';
 import { HttpService } from '@services/http.service';
 import { ApiHostService } from '@services/api-host.service';
 import { MatDialog } from '@angular/material';
 import { DialogComponent } from '@common/utility';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ROUTE_URLS } from '@app/route-urls.const';
 @Component({
   selector: 'app-post-form',
   templateUrl: './post-form.component.html',
-  styleUrls: ['./post-form.component.scss']
+  styleUrls: ['./post-form.component.scss'],
 })
 export class PostFormComponent implements OnInit {
+  public postId: number = null;
   public pageTitle: string;
   public isBodyEmpty: boolean = false;
   public form: FormGroup;
@@ -45,12 +46,17 @@ export class PostFormComponent implements OnInit {
     private readonly apiHostService: ApiHostService,
     private readonly httpService: HttpService,
     private readonly router: Router,
+    private readonly activatedRoute: ActivatedRoute,
     public dialog: MatDialog
   ) {}
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(
+      (params) => (this.postId = +params.id)
+    );
     this.initForm();
     if (this.postData) {
+      this.postData['id'] = this.postId;
       this.pageTitle = 'edit';
       this.form.patchValue(this.postData);
     } else {
@@ -61,6 +67,7 @@ export class PostFormComponent implements OnInit {
 
   initForm() {
     this.form = this.formBuilder.group({
+      id: [null],
       title: [null, Validators.compose([Validators.required])],
       category: [null, Validators.compose([Validators.required])],
       subCategory: [null, Validators.compose([Validators.required])],
@@ -68,7 +75,7 @@ export class PostFormComponent implements OnInit {
       metaTags: this.formBuilder.group({
         title: [null, Validators.compose([Validators.required])],
         description: [null, Validators.compose([Validators.required])],
-        keywords: [null, Validators.compose([Validators.required])]
+        keywords: [null, Validators.compose([Validators.required])],
       }),
       creationDate: this.formBuilder.control({ value: null, disabled: true }),
       youtubeVideoId: [null],
@@ -78,7 +85,7 @@ export class PostFormComponent implements OnInit {
       shared: this.formBuilder.control({ value: '0', disabled: true }),
       bookmarks: this.formBuilder.control({ value: '0', disabled: true }),
       body: [null, Validators.required],
-      status: ['0']
+      status: ['0'],
     });
   }
 
@@ -87,7 +94,7 @@ export class PostFormComponent implements OnInit {
       this.isBodyEmpty = true;
     } else {
       this.isBodyEmpty = false;
-      this.form.controls.body.setValue(JSON.stringify(editorData));
+      this.form.controls.body.setValue(editorData);
     }
   }
 
@@ -103,7 +110,7 @@ export class PostFormComponent implements OnInit {
     const reader = new FileReader();
     let imgURL;
     reader.readAsDataURL(file);
-    reader.onload = event => {
+    reader.onload = (event) => {
       imgURL = reader.result;
       const preview = $event.target.nextElementSibling;
       preview.src = imgURL;
@@ -121,7 +128,7 @@ export class PostFormComponent implements OnInit {
     this.formData = this.createFormData(this.form.getRawValue());
     this.formData.append('bannerImageFile', this.bannerImageFile);
     this.formData.append('shareImageFile', this.shareImageFile);
-    if (this.pageTitle !== 'edit') {
+    if (this.pageTitle === 'add') {
       this.httpService
         .postHttp(this.apiHostService.concatUrl('/add-post.php'), this.formData)
         .subscribe(
@@ -131,29 +138,27 @@ export class PostFormComponent implements OnInit {
             msg: string;
             error?: {}[];
           }) => {
-            if (data.success === 1) {
-              this.openDialog(
-                data.success,
-                'Uidhtml says: Successful!!',
-                data.msg
-              );
-            } else {
-              this.openDialog(
-                data.success,
-                'Uidhtml says: Error!!',
-                data.msg,
-                data.error
-              );
-            }
+            this.showStatus(data);
           }
         );
     } else {
+      const bodyString = this.addslashes(
+        JSON.stringify(this.form.get('body').value)
+      );
+      this.formData['body'] = bodyString;
       this.httpService
         .putHttp(
           this.apiHostService.concatUrl('/update-post.php'),
           this.formData
         )
-        .subscribe(data => console.log(data));
+        .subscribe(
+          (data: {
+            success: number;
+            title: string;
+            msg: string;
+            error?: {}[];
+          }) => this.showStatus(data)
+        );
     }
   }
   resetForm() {
@@ -184,15 +189,36 @@ export class PostFormComponent implements OnInit {
   openDialog(success: number, title: string, msg: string, error?: {}[]): void {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: 'auto',
-      data: { success, title, msg, error }
+      data: { success, title, msg, error },
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       if (result === true) {
         this.router.navigate([
-          `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.POST}/${ROUTE_URLS.ALL}`
+          `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.POST}/${ROUTE_URLS.ALL}`,
         ]);
       }
     });
+  }
+
+  showStatus(data) {
+    if (data.success === 1) {
+      this.openDialog(data.success, 'Uidhtml says: Successful!!', data.msg);
+    } else {
+      this.openDialog(
+        data.success,
+        'Uidhtml says: Error!!',
+        data.msg,
+        data.error
+      );
+    }
+  }
+
+  addslashes(str) {
+    str = str.replace(/\\/g, '\\\\');
+    str = str.replace(/\'/g, "\\'");
+    str = str.replace(/\"/g, '\\"');
+    str = str.replace(/\0/g, '\\0');
+    return str;
   }
 }

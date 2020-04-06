@@ -5,7 +5,7 @@ import { ROUTE_URLS } from '../../../../route-urls.const';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
   public menu: Menu[] = [
@@ -17,9 +17,9 @@ export class SidebarComponent implements OnInit {
         {
           label: ROUTE_URLS.DASHBAORD,
           link: `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.DASHBAORD}`,
-          icon: 'dashboard'
-        }
-      ]
+          icon: 'dashboard',
+        },
+      ],
     },
     {
       label: ROUTE_URLS.POST,
@@ -27,19 +27,14 @@ export class SidebarComponent implements OnInit {
         {
           label: `${ROUTE_URLS.ALL}`,
           link: `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.POST}/${ROUTE_URLS.ALL}`,
-          icon: 'view_list'
+          icon: 'view_list',
         },
         {
           label: `${ROUTE_URLS.ADD}`,
           link: `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.POST}/${ROUTE_URLS.ADD}`,
-          icon: 'add'
+          icon: 'add',
         },
-        {
-          label: `${ROUTE_URLS.EDIT}`,
-          link: `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.POST}/${ROUTE_URLS.EDIT}`,
-          icon: 'edit'
-        }
-      ]
+      ],
     },
     {
       label: ROUTE_URLS.QUERY,
@@ -47,25 +42,25 @@ export class SidebarComponent implements OnInit {
         {
           label: `${ROUTE_URLS.ALL}`,
           link: `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.QUERY}/${ROUTE_URLS.ALL}`,
-          icon: 'view_list'
+          icon: 'view_list',
         },
         {
           label: `${ROUTE_URLS.ANSWERED}`,
           link: `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.QUERY}/${ROUTE_URLS.ANSWERED}`,
-          icon: 'chat'
+          icon: 'chat',
         },
         {
           label: `${ROUTE_URLS.UNANSWERED}`,
           link: `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.QUERY}/${ROUTE_URLS.UNANSWERED}`,
-          icon: 'chat_bubble'
+          icon: 'chat_bubble',
         },
         {
           label: `${ROUTE_URLS.PENDING}`,
           link: `/${ROUTE_URLS.ADMIN}/${ROUTE_URLS.QUERY}/${ROUTE_URLS.PENDING}`,
-          icon: 'chat_bubble_outline'
-        }
-      ]
-    }
+          icon: 'chat_bubble_outline',
+        },
+      ],
+    },
   ];
 
   constructor() {}

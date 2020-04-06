@@ -1,63 +1,66 @@
+@import './../../../../../assets/scss/frontend/variables';
 h2 {
-    display: flex;
-    align-items: center;
-    text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 2rem;
+  color: $headerBg;
 }
 
 .mat-card {
-    background: none;
-    box-shadow: unset;
+  background: none;
+  box-shadow: unset;
 }
 
 table {
-    width: 100%;
-    background: none;
-    box-shadow: unset;
-    th {
-        font-size: 1rem;
-        color: #333;
+  width: 100%;
+  background: none;
+  box-shadow: unset;
+  th {
+    font-size: 1rem;
+    color: #333;
+  }
+  th,
+  td {
+    &:last-child {
+      text-align: right;
     }
-    th,
-    td {
-        &:last-child {
-            text-align: right;
-        }
-    }
-    th:nth-child(5),
-    td:nth-child(5) {
-        max-width: 350px;
-    }
+  }
+  th:nth-child(5),
+  td:nth-child(5) {
+    max-width: 350px;
+  }
 }
 
 .mat-paginator {
-    margin: 0 auto;
-    background: none;
+  margin: 0 auto;
+  background: none;
 }
 
 .mat-card-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    .mat-form-field,
-    fieldset,
-    .editor {
-        margin-bottom: 2rem;
-        flex-basis: 48%;
-        display: block;
-    }
-    .editor,
-    .mat-card-actions {
-        flex-basis: 100%;
-    }
-    .mat-card-actions {
-        text-align: center;
-    }
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  .mat-form-field,
+  fieldset,
+  .editor {
+    margin-bottom: 2rem;
+    flex-basis: 48%;
+    display: block;
+  }
+  .editor,
+  .mat-card-actions {
+    flex-basis: 100%;
+  }
+  .mat-card-actions {
+    text-align: center;
+  }
 }
 
 .column-wrapper {
-    display: flex;
-    justify-content: space-between;
-    .mat-form-field {
-        flex-basis: 30%;
-    }
+  display: flex;
+  justify-content: space-between;
+  .mat-form-field {
+    flex-basis: 30%;
+  }
 }
